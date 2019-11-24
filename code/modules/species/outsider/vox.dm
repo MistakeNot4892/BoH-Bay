@@ -41,7 +41,7 @@
 	cold_level_2 = 50
 	cold_level_3 = 0
 
-	min_age = 18
+	min_age = 1
 	max_age = 100
 
 	gluttonous = GLUT_TINY|GLUT_ITEM_NORMAL
@@ -52,7 +52,7 @@
 	siemens_coefficient = 0.2
 
 	species_flags = SPECIES_FLAG_NO_SCAN
-	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED | SPECIES_NO_FBP_CONSTRUCTION
+	spawn_flags = SPECIES_CAN_JOIN | SPECIES_NO_FBP_CONSTRUCTION// | SPECIES_IS_WHITELISTED
 	appearance_flags = HAS_EYE_COLOR | HAS_HAIR_COLOR
 
 	blood_color = "#2299fc"
