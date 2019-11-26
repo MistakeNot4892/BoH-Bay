@@ -2783,6 +2783,7 @@
 #include "code\modules\species\station\golem.dm"
 #include "code\modules\species\station\monkey.dm"
 #include "code\modules\species\station\Sergal.dm"
+#include "code\modules\species\station\Sergal_subspecies.dm"
 #include "code\modules\species\station\station.dm"
 #include "code\modules\spells\artifacts.dm"
 #include "code\modules\spells\construct_spells.dm"
