@@ -1,6 +1,8 @@
-# Nebula 13
+# Bastion of Hestia
 
-[Discord](https://discord.gg/Ddw58yF) - [Code](http://github.com/NebulaSS13/Nebula/)
+[Website]() - [Code](https://github.com/BoHBranch/BoH-Bay) - [Discord]() - [IRC]()
+
+This is a fork of Baystation12's code for BYOND on Space Station 13.
 
 ---
 
