@@ -11,6 +11,18 @@
 	)
 
 // Cultural IDs.
+#define FACTION_SOL_CENTRAL    "Sol Central Government"
+#define FACTION_INDIE_CONFED  "Gilgamesh Colonial Confederation"
+#define FACTION_NANOTRASEN     "NanoTrasen"
+#define FACTION_FREETRADE      "Free Trade Union"
+#define FACTION_HEPHAESTUS     "Hephaestus Industries"
+#define FACTION_XYNERGY        "Xynergy"
+#define FACTION_FLEET          "SCG Fleet"
+#define FACTION_MARINES        "Solarian Marine Corps" // BoH Addon
+#define FACTION_EXPEDITIONARY  "Expeditionary Corps"
+#define FACTION_PCRC           "Proxima Centauri Risk Control"
+#define FACTION_CORPORATE       "Expeditionary Corps Organisation"
+#define FACTION_DAIS           "Deimos Advanced Information Systems"
 #define FACTION_OTHER          "Other Faction"
 
 #define HOME_SYSTEM_STATELESS  "Stateless"
