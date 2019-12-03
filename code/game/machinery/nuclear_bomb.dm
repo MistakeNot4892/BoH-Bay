@@ -155,7 +155,7 @@ var/bomb_set
 		extended = 1
 		if(!src.lighthack)
 			flick("lock", src)
-			update_icon()	
+			update_icon()
 
 /obj/machinery/nuclearbomb/interface_interact(mob/user)
 	if(extended && !panel_open)
@@ -398,7 +398,12 @@ var/bomb_set
 		/obj/item/disk/nuclear,
 		/obj/item/pinpointer,
 		/obj/item/folder/envelope/nuke_instructions,
-		/obj/item/modular_computer/laptop/preset/custom_loadout/cheap/
+		/obj/item/modular_computer/laptop/preset/custom_loadout/cheap/,
+		/obj/item/weapon/folder/envelope/captain,
+		/obj/item/weapon/gun/projectile/revolver/medium/captain,
+		/obj/item/ammo_magazine/speedloader/rubber,
+		/obj/item/ammo_magazine/speedloader/rubber,
+		/obj/item/ammo_magazine/speedloader/rubber
 	)
 
 /obj/item/storage/secure/briefcase/nukedisk/examine(mob/user)
