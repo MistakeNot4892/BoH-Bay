@@ -17,14 +17,14 @@
 
 /obj/item/documents/scg/verified
 	name = "secret government documents"
-	desc = "\"Top Secret\" documents detailing SCG IFF codes, granting the Torch access into restricted sectors. The majority of them are coordinates, codes for fellow ships, and clearance lists."
+	desc = "\"Top Secret\" documents detailing SCG IFF codes, granting the Dagon access into restricted sectors. The majority of them are coordinates, codes for fellow ships, and clearance lists."
 	description_antag = "These codes seem very odd for an exploration vessel: a lot of them are SCG blacksites, covered up. You've never even heard of most of these."
 	icon_state = "docs_verified"
 
 /obj/item/documents/scg/brains
 	name = "secret medical documents"
-	desc = "Heavily classified medical documentation of brain scans and exploratory surgery conducted across the entire length of the Torch project. It seems like they have been documenting how deep-space living has altered the structure of the brain."
-	description_antag = "These studies were conducted, without consent, while the patients were under anaesthesia for some other routine medical concern. They detail some very unusual deformities within the deepest parts of the brain, correlating them with the people and places visited by the Torch 'for later assessment'. The findings, and any 'viable specimens', are to be delivered to a black site on S/2004 N 1."
+	desc = "Heavily classified medical documentation of brain scans and exploratory surgery conducted across the entire length of the Dagon project. It seems like they have been documenting how deep-space living has altered the structure of the brain."
+	description_antag = "These studies were conducted, without consent, while the patients were under anaesthesia for some other routine medical concern. They detail some very unusual deformities within the deepest parts of the brain, correlating them with the people and places visited by the Dagon 'for later assessment'. The findings, and any 'viable specimens', are to be delivered to a black site on S/2004 N 1."
 	icon_state = "docs_verified"
 
 /obj/item/documents/scg/red
