@@ -18,6 +18,7 @@
 #define SPECIES_IS_RESTRICTED                0x2    // Is not a core/normally playable species. (castes, mutantraces)
 #define SPECIES_CAN_JOIN                     0x4    // Species is selectable in chargen.
 #define SPECIES_NO_ROBOTIC_INTERNAL_ORGANS   0x8    // Species cannot start with robotic organs or have them attached.
+#define SPECIES_NO_LACE						 0x40   // Species cannot have laces.
 
 // Species appearance flags
 #define HAS_SKIN_TONE_NORMAL                                                      0x1    // Skin tone selectable in chargen for baseline humans (0-220)
