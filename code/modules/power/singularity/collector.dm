@@ -22,11 +22,7 @@ var/global/list/rad_collectors = list()
 	var/drainratio = 1
 
 	var/last_rads
-	var/max_rads = 250 // rad collector will reach max power output at this value, and break at twice this value
-	var/max_power = 5e5
-	var/pulse_coeff = 20
-	var/end_time = 0
-	var/alert_delay = 10 SECONDS
+	var/max_rads = 2000 // rad collector will reach max power output at this value, and break at twice this value // nah.
 
 /obj/machinery/power/rad_collector/Initialize()
 	. = ..()
@@ -42,9 +38,8 @@ var/global/list/rad_collectors = list()
 	last_power_new = 0
 
 	if(P && active)
-		var/rads = SSradiation.get_rads_at_turf(get_turf(src))
-		if(rads)
-			receive_pulse(rads * 5) //Maths is hard
+		if(last_rads)
+			receive_pulse(12.5*(last_rads/max_rads)/(0.3+(last_rads/max_rads)))
 
 	if(P)
 		if(P.air_contents.gas[MAT_PHORON] == 0)
