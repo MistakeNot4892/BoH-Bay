@@ -346,9 +346,6 @@ var/const/enterloopsanity = 100
 
 	return TRUE
 
-/turf/blob_act()
-	return
-
 /turf/proc/is_wall()
 	return FALSE
 

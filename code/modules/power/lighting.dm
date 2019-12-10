@@ -245,9 +245,6 @@
 		return SPAN_WARNING("You must first remove the lightbulb!")
 	return ..()
 
-/obj/machinery/light/blob_act()
-	broken()
-
 /obj/machinery/light/attackby(obj/item/W, mob/user)
 	. = ..()
 	if(. || panel_open)
