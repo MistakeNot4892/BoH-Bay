@@ -209,14 +209,6 @@
 	. = ..()
 	reagents.add_reagent(/datum/reagent/toxin/plantbgone, 100)
 
-/obj/item/chems/spray/plantbgone/afterattack(atom/A, mob/user, proximity)
-	if(!proximity) return
-
-	if(istype(A, /obj/effect/blob)) // blob damage in blob code
-		return
-
-	..()
-
 /obj/item/chems/spray/cleaner/deodorant
 	name = "deodorant"
 	desc = "A can of Gold Standard spray deodorant - for when you're too lazy to shower."

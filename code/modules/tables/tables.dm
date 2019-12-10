@@ -176,6 +176,9 @@
 	else
 		return ..()
 
+/obj/structure/table/blob_act()
+	take_damage(100)
+
 /obj/structure/table/proc/reinforce_table(obj/item/stack/material/S, mob/user)
 	if(reinf_material)
 		to_chat(user, "<span class='warning'>\The [src] is already reinforced!</span>")

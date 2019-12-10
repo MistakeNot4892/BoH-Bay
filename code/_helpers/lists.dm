@@ -766,3 +766,10 @@ GLOBAL_LIST_INIT(json_cache, new)
 	catch()
 		to_world_log("Malformed json: [json].")
 		return list()
+
+/proc/shuffle_inplace(list/L)
+	if(!L)
+		return
+
+	for(var/i=1, i<L.len, ++i)
+		L.Swap(i,rand(i,L.len))
