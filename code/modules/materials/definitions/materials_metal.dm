@@ -51,7 +51,7 @@
 		)
 	ore_icon_overlay = "nugget"
 	sale_price = 3
-	value = 40	
+	value = 40
 	removed_by_welder = TRUE
 
 /material/gold/bronze //placeholder for ashtrays
@@ -227,7 +227,7 @@
 	display_name = "osmium-carbide plasteel"
 	stack_type = /obj/item/stack/material/ocp
 	integrity = 200
-	melting_point = 12000
+	flags = MATERIAL_UNMELTABLE //Primarily for off-site burn chambers.
 	icon_base = "solid"
 	icon_reinf = "reinf_over"
 	icon_colour = "#9bc6f2"
