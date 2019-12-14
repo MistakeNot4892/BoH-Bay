@@ -9,7 +9,13 @@
 	desc = "A DIY modular assembly. Circuitry not included"
 
 
-/obj/item/organ/internal/augment/active/simple/circuit/attackby(obj/item/W, mob/user)
+/obj/item/organ/internal/augment/active/simple/circuit/left
+	allowed_organs = list(BP_AUGMENT_L_ARM)
+
+/obj/item/organ/internal/augment/active/simple/circuit/right
+	allowed_organs = list(BP_AUGMENT_R_ARM)
+
+/obj/item/organ/internal/augment/active/simple/circuit/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(isCrowbar(W))
 		//Remove internal circuit
 		if(holding)
