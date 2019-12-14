@@ -1268,20 +1268,22 @@
 	icon_deny = "lavatory-deny"
 	icon_vend = "lavatory-vend"
 	base_type = /obj/machinery/vending/lavatory
-	products = list(/obj/item/soap = 12,
-					/obj/item/mirror = 8,
-					/obj/item/haircomb/random = 8,
-					/obj/item/haircomb/brush = 4,
-					/obj/item/towel/random = 6,
-					/obj/item/chems/spray/cleaner/deodorant = 5
+	products = list(/obj/item/weapon/soap = 12,
+					/obj/item/weapon/mirror = 8,
+					/obj/item/weapon/haircomb/random = 8,
+					/obj/item/weapon/haircomb/brush = 4,
+					/obj/item/weapon/towel/random = 6,
+					/obj/item/weapon/reagent_containers/spray/cleaner/deodorant = 5,
+					/obj/item/clothing/under/bathrobe = 6
 					)
-	contraband = list(/obj/item/inflatable_duck = 1)
-	prices = list(/obj/item/soap = 20,
-				  /obj/item/mirror = 40,
-				  /obj/item/haircomb/random = 40,
-				  /obj/item/haircomb/brush = 80,
-				  /obj/item/towel/random = 50,
-				  /obj/item/chems/spray/cleaner/deodorant = 30
+	contraband = list(/obj/item/weapon/inflatable_duck = 1)
+	prices = list(/obj/item/weapon/soap = 20,
+				  /obj/item/weapon/mirror = 40,
+				  /obj/item/weapon/haircomb/random = 40,
+				  /obj/item/weapon/haircomb/brush = 80,
+				  /obj/item/weapon/towel/random = 50,
+				  /obj/item/weapon/reagent_containers/spray/cleaner/deodorant = 30,
+				  /obj/item/clothing/under/bathrobe = 45
 					)
 
 //a food variant of the boda machine - It carries slavic themed foods.. Mostly beer snacks
