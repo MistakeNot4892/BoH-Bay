@@ -269,6 +269,13 @@
 	on_floor = 1
 	send_material_data = 1
 
+/datum/stack_recipe/improv_rifle
+	title = "improvised rifle stock"
+	result_type = /obj/item/weapon/imprifleframe
+	req_amount = 10
+	on_floor = 1
+	difficulty = 1
+
 /datum/stack_recipe/wooden_prosthetic
 	title = "left arm"
 	result_type = /obj/item/organ/external/arm/wooden

@@ -139,6 +139,7 @@
 	. += new/datum/stack_recipe/stick(src)
 	. += new/datum/stack_recipe/noticeboard(src)
 	. += new/datum/stack_recipe/furniture/table_frame(src)
+	. += new/datum/stack_recipe/improv_rifle(src)
 	. += new/datum/stack_recipe/wooden_prosthetic(src)
 	. += new/datum/stack_recipe/wooden_prosthetic/right_arm(src)
 	. += new/datum/stack_recipe/wooden_prosthetic/left_leg(src)
@@ -147,7 +148,6 @@
 	. += new/datum/stack_recipe/wooden_prosthetic/right_hand(src)
 	. += new/datum/stack_recipe/wooden_prosthetic/left_foot(src)
 	. += new/datum/stack_recipe/wooden_prosthetic/right_foot(src)
-
 /material/wood/mahogany/generate_recipes(var/reinforce_material)
 	. = ..()
 	if(reinforce_material)
