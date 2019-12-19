@@ -80,6 +80,7 @@
 	icon_state = "tacknife"
 	material_force_multiplier = 0.2
 	w_class = ITEM_SIZE_SMALL
+	w_class = ITEM_SIZE_SMALL //can be shoved into boots yet again
 
 //random stuff
 /obj/item/material/knife/hook
