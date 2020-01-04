@@ -24,6 +24,30 @@
 	max_heat_protection_temperature = HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.7
 	w_class = ITEM_SIZE_NORMAL
+	var/allow_hair_covering = 1
+
+// Snowflakes gotta snowflake.
+/obj/item/clothing/head/helmet/verb/toggle_block_hair()
+	set name = "Toggle Helmet Hair Coverage"
+	set category = "Object"
+
+	if(allow_hair_covering)
+		flags_inv ^= BLOCKHEADHAIR
+		to_chat(usr, "<span class='notice'>[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair.</span>")
+	..()
+
+/obj/item/clothing/head/helmet/nt
+	name = "\improper corporate security helmet"
+	desc = "A helmet with 'CORPORATE SECURITY' printed on the back in red lettering."
+	icon_state = "helmet_nt"
+
+/obj/item/clothing/head/helmet/pcrc
+	name = "\improper PCRC helmet"
+	desc = "A helmet with 'PRIVATE SECURITY' printed on the back in cyan lettering."
+	icon_state = "helmet_pcrc"
+
+/obj/item/clothing/head/helmet/nt/guard
+	starting_accessories = list(/obj/item/clothing/accessory/armor/helmcover/nt)
 
 /obj/item/clothing/head/helmet/tactical
 	name = "tactical helmet"
