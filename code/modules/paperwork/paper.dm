@@ -295,7 +295,7 @@
 					return
 			else
 				return
-		
+
 		var/obj/item/pen/P = I
 		if(!P.active)
 			P.toggle()
@@ -476,3 +476,7 @@
 /obj/item/paper/aromatherapy_disclaimer
 	name = "aromatherapy disclaimer"
 	info = "<I>The manufacturer and the retailer make no claims of the contained products' effacy.</I> <BR><BR><B>Use at your own risk.</B>"
+
+/obj/item/weapon/paper/warcrime_notice
+	name = "civil armor notice"
+	info = "Usage of civilian-marked armor as non-civilian or its usage to engage into non-defensive conflict <U>may be</U> <B>considered as a crime.</B>"
