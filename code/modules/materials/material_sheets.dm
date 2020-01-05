@@ -24,7 +24,7 @@
 		if(!istype(reinf_material))
 			reinf_material = null
 	base_state = icon_state
-	
+
 	if(!stacktype)
 		stacktype = material.stack_type
 	origin_tech = origin_tech || material.stack_origin_tech
@@ -39,7 +39,7 @@
 	if(!material)
 		return
 	recipes = material.get_recipes(reinf_material && reinf_material.type)
-	..() 
+	..()
 
 /obj/item/stack/material/get_codex_value()
 	return (material && !material.hidden_from_codex) ? "[lowertext(material.display_name)] (material)" : ..()
@@ -67,7 +67,7 @@
 
 	if(material_flags & USE_MATERIAL_PLURAL_NAME)
 		plural_name = material.sheet_plural_name
-	
+
 	if(amount>1)
 		SetName("[material.use_name] [plural_name]")
 		desc = "A stack of [material.use_name] [plural_name]."
@@ -469,7 +469,7 @@
 	material = MAT_GLASS
 
 /obj/item/stack/material/glass/on_update_icon()
-	if(reinf_material) 
+	if(reinf_material)
 		icon_state = "sheet-glass-reinf"
 		base_state = icon_state
 		plural_icon_state = "sheet-glass-reinf-mult"
@@ -522,6 +522,9 @@
 
 /obj/item/stack/material/aliumium/ten
 	amount = 10
+
+/obj/item/stack/material/aliumium/fifty
+	amount = 50
 
 /obj/item/stack/material/generic
 	icon_state = "sheet"

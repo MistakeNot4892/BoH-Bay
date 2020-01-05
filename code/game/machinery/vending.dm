@@ -639,9 +639,9 @@
 	base_type = /obj/machinery/vending/boozeomat
 
 /obj/machinery/vending/assist
-	products = list(	/obj/item/assembly/prox_sensor = 5,/obj/item/assembly/igniter = 3,/obj/item/assembly/signaler = 4,
-						/obj/item/wirecutters = 1)
-	contraband = list(/obj/item/flashlight = 5,/obj/item/assembly/timer = 2)
+	products = list(	/obj/item/device/assembly/prox_sensor = 5,/obj/item/device/assembly/igniter = 3,/obj/item/device/assembly/signaler = 4,
+						/obj/item/weapon/wirecutters = 1,/obj/item/weapon/tape_roll = 2)
+	contraband = list(/obj/item/device/flashlight = 5,/obj/item/device/assembly/timer = 2)
 	product_ads = "Only the finest!;Have some tools.;The most robust equipment.;The finest gear in space!"
 
 /obj/machinery/vending/assist/antag
@@ -963,13 +963,14 @@
 	base_type = /obj/machinery/vending/security
 	req_access = list(access_security)
 	products = list(
-		/obj/item/handcuffs = 8,
-		/obj/item/grenade/flashbang = 4,
-		/obj/item/grenade/chem_grenade/teargas = 4,
-		/obj/item/flash = 5,
-		/obj/item/chems/food/snacks/donut/normal = 12,
-		/obj/item/storage/box/evidence = 6)
-	contraband = list(/obj/item/clothing/glasses/sunglasses = 2,/obj/item/storage/box/donut = 2)
+		/obj/item/weapon/handcuffs = 8,
+		/obj/item/weapon/grenade/flashbang = 4,
+		/obj/item/weapon/grenade/chem_grenade/teargas = 4,
+		/obj/item/device/flash = 5,
+		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 12,
+		/obj/item/weapon/storage/box/evidence = 6,
+		/obj/item/weapon/tape_roll = 2)
+	contraband = list(/obj/item/clothing/glasses/sunglasses = 2,/obj/item/weapon/storage/box/donut = 2)
 
 /obj/machinery/vending/hydronutrients
 	name = "NutriMax"
@@ -1111,10 +1112,10 @@
 	icon_vend = "tool-vend"
 	vend_delay = 11
 	base_type = /obj/machinery/vending/tool
-	products = list(/obj/item/stack/cable_coil/random = 10,/obj/item/crowbar = 5,/obj/item/weldingtool = 3,/obj/item/wirecutters = 5,
-					/obj/item/wrench = 5,/obj/item/scanner/gas = 5,/obj/item/t_scanner = 5,/obj/item/screwdriver = 5,
-					/obj/item/flashlight/flare/glowstick = 3, /obj/item/flashlight/flare/glowstick/red = 3, /obj/item/tape_roll = 8)
-	contraband = list(/obj/item/weldingtool/hugetank = 2,/obj/item/clothing/gloves/insulated/cheap = 2)
+	products = list(/obj/item/stack/cable_coil/random = 10,/obj/item/weapon/crowbar = 5,/obj/item/weapon/weldingtool = 3,/obj/item/weapon/wirecutters = 5,
+					/obj/item/weapon/wrench = 5,/obj/item/device/scanner/gas = 5,/obj/item/device/t_scanner = 5,/obj/item/weapon/screwdriver = 5,
+					/obj/item/device/flashlight/flare/glowstick = 3, /obj/item/device/flashlight/flare/glowstick/red = 3, /obj/item/weapon/tape_roll = 8, /obj/item/weapon/tape_roll = 2)
+	contraband = list(/obj/item/weapon/weldingtool/hugetank = 2,/obj/item/clothing/gloves/insulated/cheap = 2)
 	premium = list(/obj/item/clothing/gloves/insulated = 1)
 
 /obj/machinery/vending/tool/adherent
@@ -1273,7 +1274,8 @@
 					/obj/item/weapon/haircomb/random = 8,
 					/obj/item/weapon/haircomb/brush = 4,
 					/obj/item/weapon/towel/random = 6,
-					/obj/item/weapon/reagent_containers/spray/cleaner/deodorant = 5
+					/obj/item/weapon/reagent_containers/spray/cleaner/deodorant = 5,
+					/obj/item/weapon/tape_roll = 2
 					)
 	contraband = list(/obj/item/weapon/inflatable_duck = 1)
 	prices = list(/obj/item/weapon/soap = 20,
@@ -1281,7 +1283,8 @@
 				  /obj/item/weapon/haircomb/random = 40,
 				  /obj/item/weapon/haircomb/brush = 80,
 				  /obj/item/weapon/towel/random = 50,
-				  /obj/item/weapon/reagent_containers/spray/cleaner/deodorant = 30
+				  /obj/item/weapon/reagent_containers/spray/cleaner/deodorant = 30,
+				  /obj/item/weapon/tape_roll = 65
 					)
 
 //a food variant of the boda machine - It carries slavic themed foods.. Mostly beer snacks
