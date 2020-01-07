@@ -399,7 +399,7 @@ var/bomb_set
 		/obj/item/pinpointer,
 		/obj/item/folder/envelope/nuke_instructions,
 		/obj/item/modular_computer/laptop/preset/custom_loadout/cheap/,
-		/obj/item/weapon/folder/envelope/captain
+		/obj/item/weapon/folder/envelope/rep
 	)
 
 /obj/item/storage/secure/briefcase/nukedisk/examine(mob/user)
