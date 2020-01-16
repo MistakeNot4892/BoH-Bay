@@ -93,7 +93,10 @@
 	..()
 	user.apply_stored_shock_to(target)
 
-/decl/natural_attack/stomp/weak
+/datum/unarmed_attack/slime_glomp/get_damage_type()
+	return CLONE
+
+/datum/unarmed_attack/stomp/weak
 	attack_verb = list("jumped on")
 	attack_name = "weak stomp"
 
@@ -185,4 +188,17 @@
 	attack_name = "venomous bite"
 
 /decl/natural_attack/bite/venom/get_damage_type()
+	return TOX
+
+/////////
+// boh
+/////////
+/datum/unarmed_attack/punch/venom
+	attack_verb = list("mauled", "sank their claws into")
+	attack_sound = 'sound/weapons/bite.ogg'
+	damage = 5
+	delay = 120
+	attack_name = "venomous strike"
+
+/datum/unarmed_attack/bite/venom/get_damage_type()
 	return TOX
