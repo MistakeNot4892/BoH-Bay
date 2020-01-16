@@ -5,6 +5,7 @@
 	density = 1
 	anchored = 1
 	unacidable = 1
+	invisibility = 101
 
 /////////
 // Cannon Placeholders
