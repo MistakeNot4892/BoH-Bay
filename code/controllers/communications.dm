@@ -114,6 +114,7 @@ var/const/ENT_FREQ	= 1461
 // department channels
 var/const/PUB_FREQ = 1459
 var/const/SEC_FREQ = 1359
+var/const/INF_FREQ = 1360
 var/const/ENG_FREQ = 1357
 var/const/MED_FREQ = 1355
 var/const/SCI_FREQ = 1351
@@ -145,6 +146,7 @@ var/list/radiochannels = list(
 	"Medical"		= MED_FREQ,
 	"Engineering"	= ENG_FREQ,
 	"Security" 		= SEC_FREQ,
+	"Infantry" 		= INF_FREQ,
 	"Response Team" = ERT_FREQ,
 	"Special Ops" 	= DTH_FREQ,
 	"Mercenary" 	= SYND_FREQ,
@@ -170,7 +172,8 @@ var/list/channel_color_presets = list(
 	"Tantalizing Turquoise" = COMMS_COLOR_MEDICAL,
 	"Bemoaning Brown" = COMMS_COLOR_SUPPLY,
 	"Gastric Green" = COMMS_COLOR_SERVICE,
-	"Bold Brass" = COMMS_COLOR_EXPLORER
+	"Bold Brass" = COMMS_COLOR_EXPLORER,
+	"Viewable Violet" = COMMS_COLOR_SKRELL
 )
 
 // central command channels, i.e deathsquid & response teams
@@ -180,7 +183,7 @@ var/list/CENT_FREQS = list(ERT_FREQ, DTH_FREQ)
 var/list/ANTAG_FREQS = list(SYND_FREQ, RAID_FREQ)
 
 //Department channels, arranged lexically
-var/list/DEPT_FREQS = list(AI_FREQ, COMM_FREQ, ENG_FREQ, MED_FREQ, SEC_FREQ, SCI_FREQ, SRV_FREQ, SUP_FREQ, EXP_FREQ, ENT_FREQ)
+var/list/DEPT_FREQS = list(AI_FREQ, COMM_FREQ, ENG_FREQ, MED_FREQ, SEC_FREQ, INF_FREQ, SCI_FREQ, SRV_FREQ, SUP_FREQ, EXP_FREQ, ENT_FREQ)
 
 #define TRANSMISSION_WIRE	0
 #define TRANSMISSION_RADIO	1
@@ -201,6 +204,8 @@ var/list/DEPT_FREQS = list(AI_FREQ, COMM_FREQ, ENG_FREQ, MED_FREQ, SEC_FREQ, SCI
 	// department radio formatting (poorly optimized, ugh)
 	if(frequency == SEC_FREQ)
 		return "secradio"
+	if(frequency == INF_FREQ)
+		return "infradio"
 	if (frequency == ENG_FREQ)
 		return "engradio"
 	if(frequency == SCI_FREQ)

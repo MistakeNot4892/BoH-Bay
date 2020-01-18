@@ -151,4 +151,6 @@
 
 	if(LAZYLEN(job.department_refs & SSdepartments.departments))
 		return SSdepartments.departments[job.primary_department].announce_channel
+	if(job.department_flag & INF)
+		return "Infantry"
 	return "Common"

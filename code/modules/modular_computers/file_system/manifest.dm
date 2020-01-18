@@ -12,6 +12,7 @@
 		list("names" = list(), "header" = "Command Support", "flag" = SPT),
 		list("names" = list(), "header" = "Research", "flag" = SCI),
 		list("names" = list(), "header" = "Security", "flag" = SEC),
+		list("names" = list(), "header" = "Infantry", "flag" = INF),
 		list("names" = list(), "header" = "Medical", "flag" = MED),
 		list("names" = list(), "header" = "Engineering", "flag" = ENG),
 		list("names" = list(), "header" = "Supply", "flag" = SUP),
