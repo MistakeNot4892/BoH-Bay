@@ -75,6 +75,11 @@
 	milk		spawn_reagent = /datum/reagent/drink/milk
 	cream		spawn_reagent = /datum/reagent/drink/milk/cream
 
+///
+// boh
+///
+	coffee_old	spawn_reagent = /datum/reagent/drink/coffee/old
+
 	// ERT
 	adrenaline    spawn_reagent = /datum/reagent/adrenaline
 	retrovirals	  spawn_reagent = /datum/reagent/retrovirals
