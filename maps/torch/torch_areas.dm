@@ -689,14 +689,12 @@
 
 /area/crew_quarters/heads/office/sea
 	icon_state = "heads_sea"
-	name = "\improper Command - SEA's Office"
+	name = "\improper Command - Fleet SEA's Office"
 	req_access = list(access_senadv)
 
-//boh
 /area/crew_quarters/heads/office/sea/marine
-	icon_state = "heads_sea"
-	name = "\improper Command - Senior Enlisted Marine's Office"
-	req_access = list(access_senadv)
+	name = "\improper Command - Marine SEA's Office"
+
 // Engineering
 
 /area/engineering/shieldbay
@@ -1060,18 +1058,16 @@
 	name = "\improper Fourth Deck Security Checkpoint"
 	icon_state = "checkpoint"
 
-/area/security/oldopscheck
-	name = "\improper Deactivated Security Checkpoint"
-	icon_state = "checkpoint"
-
 /area/security/brig/perma
 	name = "\improper Permanent Brig"
 	icon_state = "brig"
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	req_access = list(access_brig)
 
 /area/security/brig/chamber
-	name = "\improper Permanent Brig Executions"
+	name = "\improper Permanent Brig Equipment"
 	icon_state = "toxstorage"
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	req_access = list(access_brig)
 
 // AI
@@ -1133,6 +1129,9 @@
 	icon_state = "chapel"
 	sound_env = SMALL_ENCLOSED
 	req_access = list(access_crematorium)
+
+/area/medical/virology
+	name = "\improper Virology (decomissioned)"
 
 // Shield Rooms
 /area/shield
@@ -1425,11 +1424,6 @@
 	sound_env = SMALL_ENCLOSED
 	req_access = list(access_robotics)
 
-/area/engineering/engine_eva
-	name = "\improper Engine EVA"
-	icon_state = "engine_eva"
-	req_access = list(access_engine, access_eva)
-
 /area/engineering/engine_monitoring
 	name = "\improper Engine Monitoring Room"
 	icon_state = "engine_monitoring"
@@ -1453,6 +1447,11 @@
 
 /area/engineering/locker_room
 	name = "\improper Engineering Locker Room"
+	icon_state = "engineering_locker"
+	req_access = list(access_engine)
+
+/area/engineering/engineering_bay
+	name = "\improper Engineering Bay"
 	icon_state = "engineering_locker"
 	req_access = list(access_engine)
 
@@ -1619,12 +1618,6 @@
 	name = "\improper AI Chamber"
 	icon_state = "ai_chamber"
 	ambience = list('sound/ambience/ambimalf.ogg')
-	req_access = list(access_ai_upload)
-
-/area/turret_protected/ai_cyborg_station
-	name = "\improper Cyborg Station"
-	icon_state = "ai_cyborg"
-	sound_env = SMALL_ENCLOSED
 	req_access = list(access_ai_upload)
 
 /area/turret_protected/ai_upload
