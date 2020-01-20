@@ -71,23 +71,26 @@
 	name = "Grenade Launcher"
 	desc = "A pump action grenade launcher loaded with a random assortment of grenades"
 	item_cost = 60
-	antag_roles = list(MODE_MERCENARY)
 	path = /obj/item/gun/launcher/grenade/loaded
 
 //These are for traitors (or other antags, perhaps) to have the option of purchasing some merc gear.
 /datum/uplink_item/item/visible_weapons/smg
-	name = "Standard Submachine Gun"
-	desc = "A quick-firing weapon with three togglable fire modes."
-	item_cost = 52
+	name = "Black Market Submachine Gun"
+	desc = "A quick-firing weapon with three togglable fire modes. Much newer than the older C-20b, and featuring more advanced features."
+	item_cost = 76
 	path = /obj/item/gun/projectile/automatic/smg
-	antag_roles = list(MODE_MERCENARY)
+
+/datum/uplink_item/item/visible_weapons/submachinegun/hacked
+	name = "Hacked SMG"
+	desc = "The Infantry's C-20b, hacked to fire aboard the vessel."
+	item_cost = 42
+	path = /obj/item/weapon/gun/projectile/automatic/merc_smg/hacked
 
 /datum/uplink_item/item/visible_weapons/assaultrifle
 	name = "Assault Rifle"
 	desc = "A common rifle with three togglable fire modes."
-	item_cost = 60
+	item_cost = 80
 	path = /obj/item/gun/projectile/automatic/assault_rifle
-	antag_roles = list(MODE_MERCENARY)
 
 /datum/uplink_item/item/visible_weapons/advanced_energy_gun
 	name = "Advanced Energy Gun"
@@ -98,16 +101,27 @@
 /datum/uplink_item/item/visible_weapons/heavysniper
 	name = "Anti-materiel Sniper Rifle"
 	desc = "A secure briefcase that contains an immensely powerful penetrating rifle, as well as seven extra sniper rounds."
-	item_cost = 68
+	item_cost = 90
 	path = /obj/item/storage/secure/briefcase/heavysniper
-	antag_roles = list(MODE_MERCENARY)
+
+/datum/uplink_item/item/visible_weapons/psi_amp
+	name = "Cerebroenergetic Psionic Amplifier"
+	item_cost = 50
+	path = /obj/item/clothing/head/helmet/space/psi_amp/lesser
+	desc = "A powerful, illegal psi-amp. Boosts existing latent psi-faculties to extremely high levels."
+
+/datum/uplink_item/item/visible_weapons/machine_pistol
+	name = "Standard Machine Pistol"
+	desc = "A high rate of fire weapon in a smaller form factor, able to sling standard ammunition almost as quick as a submachine gun."
+	item_cost = 45
+	path = /obj/item/weapon/gun/projectile/automatic/machine_pistol
 
 /datum/uplink_item/item/visible_weapons/combat_shotgun
 	name = "Pump Shotgun"
-	desc = "A high compacity, pump-action shotgun regularly used for repelling boarding parties in close range scenarios."
+	desc = "A high compacity, pump-action shotgun regularly used for repelling boarding parties in close range scenarios. \
+	For your use? Well, just pray you've enough shells, and don't stop firing."
 	item_cost = 52
 	path = /obj/item/gun/projectile/shotgun/pump
-	antag_roles = list(MODE_MERCENARY)
 
 /datum/uplink_item/item/visible_weapons/sawnoff
 	name = "Sawnoff Shotgun"
@@ -155,4 +169,10 @@
 	desc = "A laser weapon developed and subsequently banned in Sol space, it sets its targets on fire with dispersed laser technology. \
 			Most of these blasters were swiftly bought back and destroyed - but not this one."
 	item_cost = 40
-	path = /obj/item/gun/energy/incendiary_laser
+	path = /obj/item/weapon/gun/energy/incendiary_laser
+
+/datum/uplink_item/item/visible_weapons/boltaction
+	name = "Bolt Action Rifle"
+	desc = "For arming your comrades on the cheap!"
+	item_cost = 6
+	path = /obj/item/weapon/gun/projectile/heavysniper/boltaction
