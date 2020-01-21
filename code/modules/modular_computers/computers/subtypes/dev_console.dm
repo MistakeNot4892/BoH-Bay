@@ -2,7 +2,7 @@
 	name = "console"
 	maximum_component_parts = list(/obj/item/stock_parts = 14)	//There's a lot of stuff that goes in these
 	var/list/interact_sounds = list("keyboard", "keystroke")
-	var/obj/item/stock_parts/computer/hard_drive/portable/portable_drive
+	var/obj/item/weapon/stock_parts/computer/hard_drive/portable/portable_drive
 
 /obj/machinery/computer/modular/Initialize()
 	set_extension(src, /datum/extension/interactive/ntos/console)
