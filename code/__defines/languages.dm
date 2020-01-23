@@ -2,7 +2,23 @@
 #define LANGUAGE_HUMAN             "Common"
 #define LANGUAGE_NYMPH             "Nymph"
 
-#define LANGUAGE_LEGALESE          "Legalese"
+//Human misc
+#define LANGUAGE_GUTTER         "Gutter"
+#define LANGUAGE_LEGALESE       "Legalese"
+#define LANGUAGE_SPACER         "Spacer"
+
+//Alien
+#define LANGUAGE_EAL               "Encoded Audio Language"
+#define LANGUAGE_UNATHI_SINTA      "Sinta'unathi"
+#define LANGUAGE_UNATHI_YEOSA      "Yeosa'unathi"
+#define LANGUAGE_SKRELLIAN         "Skrellian"
+#define LANGUAGE_ROOTLOCAL         "Local Rootspeak"
+#define LANGUAGE_ROOTGLOBAL        "Global Rootspeak"
+#define LANGUAGE_ADHERENT          "Protocol"
+#define LANGUAGE_VOX               "Vox-pidgin"
+#define LANGUAGE_NABBER            "Serpentid"
+#define LANGUAGE_SERGAL            "Sagaru"
+
 //Antag
 #define LANGUAGE_CULT              "Cult"
 #define LANGUAGE_CULT_GLOBAL       "Occult"
