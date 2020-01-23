@@ -42,6 +42,7 @@
 	desc = "A Hephaestus Industries G40B carbine, designed to kill with concentrated energy blasts. Fitted with safety chips to make sure discharge aboard a 'safe zone' is impossible.\
 	Additionally, it features a higher capacity."
 	charge_cost = 10
+	max_shots = 20
 	req_access = list(access_infantry)
 	authorized_modes = list(UNAUTHORIZED)
 	firemodes = list(
@@ -137,21 +138,8 @@
 /////////
 // SL Shotgun
 /////////
-/obj/item/weapon/gun/projectile/shotgun/sabotgun
-	name = "GS-95 Tectonic"
-	desc = "Built for light anti-materiel use, the Hephaestus Industries GS-95 Teutonic is for frontline support infantry. \
-	It features a built in magazine, and must be loaded by hand."
-	icon = 'icons/boh/items/shotguns.dmi'
-	icon_state = "sexyshotgun"
-	item_state = "sexyshotgun"
-	wielded_item_state = "sexyshotgun-wielded"
-	load_method = SINGLE_CASING
-	handle_casings = EJECT_CASINGS
-	max_shells = 8
-	ammo_type = /obj/item/ammo_casing/sabot
-	caliber = CALIBER_SABOT
-	req_access = list(access_infantry)
-	authorized_modes = list(UNAUTHORIZED)
-	firemodes = list(
-		list(mode_name="fire", burst=1, fire_delay=null, move_delay=null, one_hand_penalty=8, burst_accuracy=null, dispersion=null),
-		)
+/obj/item/weapon/gun/projectile/free_fire()
+	var/my_z = get_z(src)
+	if(!GLOB.using_map.station_levels.Find(my_z))
+		return TRUE
+	return ..()
