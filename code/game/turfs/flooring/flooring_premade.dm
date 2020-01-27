@@ -161,6 +161,8 @@
 /turf/simulated/floor/reinforced/n20
 	initial_gas = list(MAT_N2O = ATMOSTANK_NITROUSOXIDE)
 
+/turf/simulated/floor/reinforced/xenon
+	initial_gas = list(GAS_XENON = ATMOSTANK_NITROGEN)
 
 /turf/simulated/floor/cult
 	name = "engraved floor"
@@ -273,7 +275,7 @@
 	name = "floor"
 	icon_state = "techfloor_grid"
 	initial_flooring = /decl/flooring/tiling/tech/grid
-	
+
 /turf/simulated/floor/lino
 	name = "lino"
 	icon = 'icons/turf/flooring/linoleum.dmi'
