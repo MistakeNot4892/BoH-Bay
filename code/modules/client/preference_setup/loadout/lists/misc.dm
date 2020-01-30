@@ -43,6 +43,7 @@
 /datum/gear/flask
 	display_name = "flask"
 	path = /obj/item/chems/food/drinks/flask/barflask
+	flags = GEAR_HAS_CUSTOM_SELECTION
 
 /datum/gear/flask/New()
 	..()
@@ -51,6 +52,7 @@
 /datum/gear/vacflask
 	display_name = "vacuum-flask"
 	path = /obj/item/chems/food/drinks/flask/vacuumflask
+	flags = GEAR_HAS_CUSTOM_SELECTION
 
 /datum/gear/vacflask/New()
 	..()
@@ -59,7 +61,7 @@
 /datum/gear/coffeecup
 	display_name = "coffee cup"
 	path = /obj/item/chems/food/drinks/glass2/coffeecup
-	flags = GEAR_HAS_TYPE_SELECTION
+	flags = GEAR_HAS_TYPE_SELECTION | GEAR_HAS_CUSTOM_SELECTION
 
 /datum/gear/knives
 	display_name = "knives selection"
@@ -101,6 +103,7 @@
 	display_name = "plush toy"
 	description = "A plush toy."
 	path = /obj/item/toy/plushie
+	flags = GEAR_HAS_CUSTOM_SELECTION
 
 /datum/gear/plush_toy/New()
 	..()
@@ -162,6 +165,7 @@
 /datum/gear/zippo
 	display_name = "zippo"
 	path = /obj/item/flame/lighter/zippo
+	flags = GEAR_HAS_CUSTOM_SELECTION
 
 /datum/gear/zippo/New()
 	..()
