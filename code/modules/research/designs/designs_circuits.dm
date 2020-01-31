@@ -74,6 +74,20 @@
 	build_path = /obj/item/stock_parts/circuitboard/sleeper
 	sort_string = "FACAE"
 
+/datum/design/circuit/clonecomputer
+	name = "cloning control computer"
+	id = "clooner"
+	req_tech = list(TECH_BIO = 2)
+	build_path = /obj/item/weapon/stock_parts/circuitboard/cloning
+	sort_string = "FACAG"
+
+/datum/design/circuit/clonepod
+	name = "cloning pod"
+	id = "cloonepod"
+	req_tech = list(TECH_BIO = 2)
+	build_path = /obj/item/weapon/stock_parts/circuitboard/clonepod
+	sort_string = "FAGAM"
+
 /datum/design/circuit/crewconsole
 	name = "crew monitoring console"
 	id = "crewconsole"
