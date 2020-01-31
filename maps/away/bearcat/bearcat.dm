@@ -21,13 +21,13 @@
 	max_speed = 1/(10 SECONDS)
 	burn_delay = 10 SECONDS
 
-/obj/effect/overmap/visitable/ship/bearcat/Initialize()
+/obj/effect/overmap/visitable/ship/bearcat/New()
 	name = "[pick("FTV","ITV","IEV")] [pick("Bearcat", "Firebug", "Defiant", "Unsinkable","Horizon","Vagrant")]"
 	for(var/area/ship/scrap/A)
 		A.name = "\improper [name] - [A.name]"
 		GLOB.using_map.area_purity_test_exempt_areas += A.type
 	name = "[name], \a [initial(name)]"
-	. = ..()
+	..()
 
 /datum/map_template/ruin/away_site/bearcat_wreck
 	name = "Bearcat Wreck"
@@ -84,12 +84,9 @@
 	base_turf = /turf/simulated/floor
 
 /obj/machinery/power/apc/derelict
-	cell_type = /obj/item/cell/crap/empty
-	lighting = 0
-	equipment = 0
-	environ = 0
-	locked = 0
-	coverlocked = 0
+	cell_type = /obj/item/weapon/cell/super
+	emp_hardened = 1
+	req_access = list(access_bearcat)
 
 /obj/machinery/door/airlock/autoname/command
 	door_color = COLOR_COMMAND_BLUE
@@ -97,28 +94,26 @@
 /obj/machinery/door/airlock/autoname/engineering
 	door_color = COLOR_AMBER
 
+/obj/machinery/door/airlock/hatch/autoname/engineering
+	stripe_color = COLOR_AMBER
+
 /turf/simulated/floor/usedup
-	initial_gas = list(MAT_CO2 = MOLES_O2STANDARD, MAT_NITROGEN = MOLES_N2STANDARD)
+//	initial_gas = list(GAS_CO2 = MOLES_O2STANDARD, GAS_NITROGEN = MOLES_N2STANDARD)
 
 /turf/simulated/floor/tiled/usedup
-	initial_gas = list(MAT_CO2 = MOLES_O2STANDARD, MAT_NITROGEN = MOLES_N2STANDARD)
+//	initial_gas = list(GAS_CO2 = MOLES_O2STANDARD, GAS_NITROGEN = MOLES_N2STANDARD)
 
 /turf/simulated/floor/tiled/dark/usedup
-	initial_gas = list(MAT_CO2 = MOLES_O2STANDARD, MAT_NITROGEN = MOLES_N2STANDARD)
+//	initial_gas = list(GAS_CO2 = MOLES_O2STANDARD, GAS_NITROGEN = MOLES_N2STANDARD)
 
 /turf/simulated/floor/tiled/white/usedup
-	initial_gas = list(MAT_CO2 = MOLES_O2STANDARD, MAT_NITROGEN = MOLES_N2STANDARD)
+//	initial_gas = list(GAS_CO2 = MOLES_O2STANDARD, GAS_NITROGEN = MOLES_N2STANDARD)
 
 /obj/effect/landmark/deadcap
 	name = "Dead Captain"
+	delete_me = 1
 
 /obj/effect/landmark/deadcap/Initialize()
-	..()
-	return INITIALIZE_HINT_LATELOAD
-
-// chair may need to init first
-/obj/effect/landmark/deadcap/LateInitialize()
-	..()
 	var/turf/T = get_turf(src)
 	var/mob/living/carbon/human/corpse = new(T)
 	scramble(1,corpse,100)
@@ -131,14 +126,14 @@
 	var/obj/structure/bed/chair/C = locate() in T
 	if(C)
 		C.buckle_mob(corpse)
-	qdel(src)
+	. = ..()
 
 /decl/hierarchy/outfit/deadcap
 	name = "Derelict Captain"
 	uniform = /obj/item/clothing/under/casual_pants/classicjeans
 	suit = /obj/item/clothing/suit/storage/hooded/wintercoat
 	shoes = /obj/item/clothing/shoes/black
-	r_pocket = /obj/item/radio
+	r_pocket = /obj/item/device/radio
 
 /decl/hierarchy/outfit/deadcap/post_equip(mob/living/carbon/human/H)
 	..()
@@ -149,5 +144,37 @@
 			uniform.attach_accessory(null, eyegore)
 		else
 			qdel(eyegore)
-	var/obj/item/cell/super/C = new()
+	var/obj/item/weapon/cell/super/C = new()
 	H.put_in_any_hand_if_possible(C)
+
+
+//bearcat cabinets
+/obj/structure/closet/secure_closet/guncabinet/bearcat
+	name = "Primary cabinet"
+	req_access = list(access_bearcat_captain)
+
+/obj/structure/closet/secure_closet/guncabinet/bearcat/WillContain()
+	return list(
+		/obj/item/weapon/gun/energy/laser = 4,
+		/obj/item/weapon/storage/belt/holster/general = 4,
+		/obj/item/weapon/gun/energy/gun = 4
+	)
+
+/obj/structure/closet/secure_closet/freezer/money/bearcat
+	name = "secure locker"
+	icon = 'icons/obj/closets/fridge.dmi'
+	closet_appearance = null
+	req_access = list(access_bearcat_captain)
+
+/obj/structure/closet/secure_closet/freezer/money/bearcat/Initialize()
+	. = ..()
+	//let's make hold a substantial amount.
+	var/created_size = 0
+	for(var/i = 1 to 200) //sanity loop limit
+		var/obj/item/cash_type = pick(3; /obj/item/weapon/spacecash/bundle/c1000, 4; /obj/item/weapon/spacecash/bundle/c500, 5; /obj/item/weapon/spacecash/bundle/c200)
+		var/bundle_size = initial(cash_type.w_class) / 2
+		if(created_size + bundle_size <= storage_capacity)
+			created_size += bundle_size
+			new cash_type(src)
+		else
+			break
