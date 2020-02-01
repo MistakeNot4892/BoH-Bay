@@ -12,8 +12,6 @@
 /datum/sprite_accessory/hair/bald
 	name = "Bald"
 	icon_state = "bald"
-
-	species_allowed = list(SPECIES_HUMAN,SPECIES_UNATHI,SPECIES_VOX,SPECIES_SERGAL,SPECIES_IPC)
 	flags = VERY_SHORT | HAIR_BALD
 
 /datum/sprite_accessory/hair/short
@@ -81,7 +79,6 @@
 /datum/sprite_accessory/hair/ponytail2
 	name = "Ponytail 2"
 	icon_state = "hair_pa"
-
 	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/ponytail3
@@ -92,25 +89,21 @@
 /datum/sprite_accessory/hair/ponytail4
 	name = "Ponytail 4"
 	icon_state = "hair_ponytail4"
-
 	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/ponytail5
 	name = "Ponytail 5"
 	icon_state = "hair_ponytail5"
-
 	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/ponytail6
 	name = "Ponytail 6"
 	icon_state = "hair_ponytail6"
-
 	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/sideponytail
 	name = "Side Ponytail"
 	icon_state = "hair_stail"
-
 	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/parted
@@ -121,7 +114,6 @@
 	name = "Pompadour"
 	icon_state = "hair_pompadour"
 
-
 /datum/sprite_accessory/hair/sleeze
 	name = "Sleeze"
 	icon_state = "hair_sleeze"
@@ -130,7 +122,6 @@
 /datum/sprite_accessory/hair/quiff
 	name = "Quiff"
 	icon_state = "hair_quiff"
-
 
 /datum/sprite_accessory/hair/bedhead
 	name = "Bedhead"
@@ -148,30 +139,25 @@
 /datum/sprite_accessory/hair/beehive
 	name = "Beehive"
 	icon_state = "hair_beehive"
-
 	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/beehive2
 	name = "Beehive 2"
 	icon_state = "hair_beehive2"
 
-
 /datum/sprite_accessory/hair/bobcurl
 	name = "Bobcurl"
 	icon_state = "hair_bobcurl"
-
 	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/bob
 	name = "Bob"
 	icon_state = "hair_bobcut"
-
 	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/bobcutalt
 	name = "Chin Length Bob"
 	icon_state = "hair_bobcutalt"
-
 	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/bowl
@@ -182,29 +168,24 @@
 /datum/sprite_accessory/hair/buzz
 	name = "Buzzcut"
 	icon_state = "hair_buzzcut"
-
 	flags = VERY_SHORT
 
 /datum/sprite_accessory/hair/crew
 	name = "Crewcut"
 	icon_state = "hair_crewcut"
-
 	flags = VERY_SHORT
 
 /datum/sprite_accessory/hair/combover
 	name = "Combover"
 	icon_state = "hair_combover"
 
-
 /datum/sprite_accessory/hair/father
 	name = "Father"
 	icon_state = "hair_father"
 
-
 /datum/sprite_accessory/hair/reversemohawk
 	name = "Reverse Mohawk"
 	icon_state = "hair_reversemohawk"
-
 
 /datum/sprite_accessory/hair/devillock
 	name = "Devil Lock"
@@ -231,7 +212,6 @@
 	name = "Big Afro"
 	icon_state = "hair_bigafro"
 
-
 /datum/sprite_accessory/hair/rows
 	name = "Rows"
 	icon_state = "hair_rows1"
@@ -245,7 +225,6 @@
 /datum/sprite_accessory/hair/sargeant
 	name = "Flat Top"
 	icon_state = "hair_sargeant"
-
 	flags = VERY_SHORT
 
 /datum/sprite_accessory/hair/emo
@@ -259,7 +238,6 @@
 /datum/sprite_accessory/hair/longemo
 	name = "Long Emo"
 	icon_state = "hair_emolong"
-
 	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/shortovereye
@@ -285,7 +263,6 @@
 	name = "Hitop"
 	icon_state = "hair_hitop"
 
-
 /datum/sprite_accessory/hair/mohawk
 	name = "Mohawk"
 	icon_state = "hair_d"
@@ -294,11 +271,9 @@
 	name = "Adam Jensen Hair"
 	icon_state = "hair_jensen"
 
-
 /datum/sprite_accessory/hair/gelled
 	name = "Gelled Back"
 	icon_state = "hair_gelled"
-
 
 /datum/sprite_accessory/hair/gentle
 	name = "Gentle"
@@ -317,55 +292,46 @@
 /datum/sprite_accessory/hair/kagami
 	name = "Pigtails"
 	icon_state = "hair_kagami"
-
 	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/himecut
 	name = "Hime Cut"
 	icon_state = "hair_himecut"
-
 	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/shorthime
 	name = "Short Hime Cut"
 	icon_state = "hair_shorthime"
-
 	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/grandebraid
 	name = "Grande Braid"
 	icon_state = "hair_grande"
-
 	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/mbraid
 	name = "Medium Braid"
 	icon_state = "hair_shortbraid"
-
 	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/braid2
 	name = "Long Braid"
 	icon_state = "hair_hbraid"
-
 	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/odango
 	name = "Odango"
 	icon_state = "hair_odango"
-
 	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/ombre
 	name = "Ombre"
 	icon_state = "hair_ombre"
-
 	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/updo
 	name = "Updo"
 	icon_state = "hair_updo"
-
 	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/skinhead
@@ -376,72 +342,59 @@
 /datum/sprite_accessory/hair/balding
 	name = "Balding Hair"
 	icon_state = "hair_e"
- // turnoff!
 	flags = VERY_SHORT
 
 /datum/sprite_accessory/hair/familyman
 	name = "The Family Man"
 	icon_state = "hair_thefamilyman"
 
-
 /datum/sprite_accessory/hair/mahdrills
 	name = "Drillruru"
 	icon_state = "hair_drillruru"
-
 	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/fringetail
 	name = "Fringetail"
 	icon_state = "hair_fringetail"
-
 	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/dandypomp
 	name = "Dandy Pompadour"
 	icon_state = "hair_dandypompadour"
 
-
 /datum/sprite_accessory/hair/poofy
 	name = "Poofy"
 	icon_state = "hair_poofy"
-
 	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/crono
 	name = "Chrono"
 	icon_state = "hair_toriyama"
 
-
 /datum/sprite_accessory/hair/vegeta
 	name = "Vegeta"
 	icon_state = "hair_toriyama2"
-
 
 /datum/sprite_accessory/hair/cia
 	name = "CIA"
 	icon_state = "hair_cia"
 
-
 /datum/sprite_accessory/hair/mulder
 	name = "Mulder"
 	icon_state = "hair_mulder"
-
 
 /datum/sprite_accessory/hair/scully
 	name = "Scully"
 	icon_state = "hair_scully"
 
-
 /datum/sprite_accessory/hair/nitori
 	name = "Nitori"
 	icon_state = "hair_nitori"
-
 	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/joestar
 	name = "Joestar"
 	icon_state = "hair_joestar"
-
 
 /datum/sprite_accessory/hair/volaju
 	name = "Volaju"
@@ -495,7 +448,6 @@
 /datum/sprite_accessory/hair/lowfade
 	name = "Low Fade"
 	icon_state = "hair_lowfade"
-
 	flags = VERY_SHORT
 
 /datum/sprite_accessory/hair/medfade
@@ -506,132 +458,110 @@
 /datum/sprite_accessory/hair/highfade
 	name = "High Fade"
 	icon_state = "hair_highfade"
-
 	flags = VERY_SHORT
 
 /datum/sprite_accessory/hair/baldfade
 	name = "Balding Fade"
 	icon_state = "hair_baldfade"
-
 	flags = VERY_SHORT
 
 /datum/sprite_accessory/hair/nofade
 	name = "Regulation Cut"
 	icon_state = "hair_nofade"
-
 	flags = VERY_SHORT
 
 /datum/sprite_accessory/hair/trimflat
 	name = "Trimmed Flat Top"
 	icon_state = "hair_trimflat"
-
 	flags = VERY_SHORT
 
 /datum/sprite_accessory/hair/shaved
 	name = "Shaved"
 	icon_state = "hair_shaved"
-
 	flags = VERY_SHORT
 
 /datum/sprite_accessory/hair/trimmed
 	name = "Trimmed"
 	icon_state = "hair_trimmed"
-
 	flags = VERY_SHORT
 
 /datum/sprite_accessory/hair/tightbun
 	name = "Tight Bun"
 	icon_state = "hair_tightbun"
-
 	flags = VERY_SHORT | HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/coffeehouse
 	name = "Coffee House Cut"
 	icon_state = "hair_coffeehouse"
-
 	flags = VERY_SHORT
 
 /datum/sprite_accessory/hair/undercut
 	name = "Undercut"
 	icon_state = "hair_undercut"
-
 	flags = VERY_SHORT
 
 /datum/sprite_accessory/hair/partfade
 	name = "Parted Fade"
 	icon_state = "hair_shavedpart"
-
 	flags = VERY_SHORT
 
 /datum/sprite_accessory/hair/hightight
 	name = "High and Tight"
 	icon_state = "hair_hightight"
-
 	flags = VERY_SHORT
 
 /datum/sprite_accessory/hair/rowbun
 	name = "Row Bun"
 	icon_state = "hair_rowbun"
-
 	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/rowdualbraid
 	name = "Row Dual Braid"
 	icon_state = "hair_rowdualtail"
-
 	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/rowbraid
 	name = "Row Braid"
 	icon_state = "hair_rowbraid"
-
 	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/regulationmohawk
 	name = "Regulation Mohawk"
 	icon_state = "hair_shavedmohawk"
-
 	flags = VERY_SHORT
 
 /datum/sprite_accessory/hair/topknot
 	name = "Topknot"
 	icon_state = "hair_topknot"
-
 	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/ronin
 	name = "Ronin"
 	icon_state = "hair_ronin"
-
 	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/bowlcut2
 	name = "Bowl2"
 	icon_state = "hair_bowlcut2"
 
-
 /datum/sprite_accessory/hair/thinning
 	name = "Thinning"
 	icon_state = "hair_thinning"
-
 	flags = VERY_SHORT
 
 /datum/sprite_accessory/hair/thinningfront
 	name = "Thinning Front"
 	icon_state = "hair_thinningfront"
-
 	flags = VERY_SHORT
 
 /datum/sprite_accessory/hair/thinningback
 	name = "Thinning Back"
 	icon_state = "hair_thinningrear"
-
 	flags = VERY_SHORT
 
 /datum/sprite_accessory/hair/manbun
 	name = "Manbun"
 	icon_state = "hair_manbun"
-
 	flags = HAIR_TIEABLE
 
 /datum/sprite_accessory/hair/leftsidecut
