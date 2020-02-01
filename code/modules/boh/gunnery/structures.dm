@@ -73,5 +73,5 @@
 	direction = "right"
 
 /obj/structure/mim_ammo_broken/Initialize()
+	. = ..()
 	icon_state = "pdc_[direction]"
-	..()
