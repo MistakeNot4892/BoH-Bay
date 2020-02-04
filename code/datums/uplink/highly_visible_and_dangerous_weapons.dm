@@ -12,7 +12,7 @@
 
 /datum/uplink_item/item/visible_weapons/smallenergy_gun
 	name = "Small Energy Gun"
-	desc = "A pocket-sized energy based sidearm with three different lethality settings."
+	desc = "A pocket-sized energy based sidearm with three different lethality settings, stun, shock, kill."
 	item_cost = 16
 	path = /obj/item/gun/energy/gun/small
 
@@ -51,7 +51,7 @@
 
 /datum/uplink_item/item/visible_weapons/energy_gun
 	name = "Energy Gun"
-	desc = "A energy based sidearm with three different lethality settings, Stun, Shock, Kill."
+	desc = "A energy based sidearm with three different lethality settings, stun, shock, kill."
 	item_cost = 32
 	path = /obj/item/gun/energy/gun
 
