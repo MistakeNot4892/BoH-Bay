@@ -513,6 +513,9 @@
 /obj/item/stack/material/glass/phoronrglass/ten
 	amount = 10
 
+/obj/item/stack/material/glass/phoronrglass/fifty
+	amount = 50
+
 /obj/item/stack/material/aliumium
 	name = "alien alloy"
 	icon_state = "sheet"
