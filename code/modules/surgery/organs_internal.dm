@@ -139,10 +139,10 @@
 	name = "Remove internal organ"
 	description = "This procedure removes a detached internal organ."
 	allowed_tools = list(
-		/obj/item/hemostat = 100,
-		/obj/item/wirecutters = 75,
-		/obj/item/material/knife = 75,
-		/obj/item/material/kitchen/utensil/fork = 20
+		/obj/item/weapon/hemostat = 100,
+		/obj/item/weapon/material/hatchet = 75,
+		/obj/item/weapon/material/knife = 75,
+		/obj/item/weapon/material/kitchen/utensil/fork = 20
 	)
 	min_duration = 60
 	max_duration = 80
