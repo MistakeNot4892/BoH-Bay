@@ -805,6 +805,7 @@ var/global/floorIsLava = 0
 	send2adminirc("[key_name(src)]" + long_message)
 	log_and_message_admins(long_message)
 	SSstatistics.add_field_details("admin_verb","THUB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc
+	SSbabysit.manual_delist = !SSbabysit.manual_delist
 
 /datum/admins/proc/toggletraitorscaling()
 	set category = "Server"
