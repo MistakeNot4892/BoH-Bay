@@ -16,7 +16,7 @@
 // Some on_mob_life() procs check for alien races.
 #define IS_SLIME   1
 #define IS_SERGAL  8
-#define IS_ASHWALKER 9
+#define IS_OLDUNATHI 9
 
 #define CE_STABLE        "stable"       // Adrenaline effect
 #define CE_ANTIBIOTIC    "antibiotic"   // Spaceacilin
