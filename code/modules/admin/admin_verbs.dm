@@ -158,7 +158,10 @@ var/list/admin_verbs_server = list(
 	/datum/admins/proc/toggle_aliens,
 	/datum/admins/proc/toggle_space_ninja,
 	/client/proc/toggle_random_events,
-	/client/proc/nanomapgen_DumpImage
+	/client/proc/nanomapgen_DumpImage,
+	/datum/admins/proc/panicbunker,
+	/datum/admins/proc/addbunkerbypass,
+	/datum/admins/proc/revokebunkerbypass
 	)
 var/list/admin_verbs_debug = list(
 	/datum/admins/proc/jump_to_fluid_source,
