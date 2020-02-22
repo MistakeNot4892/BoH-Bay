@@ -305,7 +305,7 @@ GLOBAL_LIST_EMPTY(skills)
 /decl/hierarchy/skill/research/science
 	ID = "science"
 	name = "Science"
-	desc = "Your experience and knowledge with scientific methods and processes."
+	desc = "Your experience and knowledge with scientific methods and processes. This also applies to sensors consoles and other scanning modules."
 	levels = list( "Unskilled"			= "You know what science is and probably have a vague idea of the scientific method from your high school science classes.",
 						"Basic"				= "You keep up with scientific discoveries. You know a little about most fields of research. You've learned basic laboratory skills. You may read about science as a hobby; or you may be working in a field related to science and have learned about science that way. You could design a simple experiment.",
 						"Trained"			= "You are a scientist, perhaps a graduate student or post-graduate researcher. You can design an experiment, analyze your results, publish your data, and integrate what you've learned with the research of other scientists. Your laboratory skills are reliable, and you know how to find information you need when you research a new scientific topic. You can dissect exotic xenofauna without many issues.",
