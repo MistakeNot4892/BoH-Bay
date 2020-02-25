@@ -538,7 +538,7 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 		if(id)
 			perpname = id.registered_name
 
-		var/datum/computer_file/report/crew_record/CR = get_crewmember_record(perpname)
+		var/datum/computer_file/report/crew_record/CR = get_crewmember_record(sanitize(perpname))//Sanitization usually not needed, but causes consistency issues otherwise.
 		if(check_records && !CR && !isMonkey())
 			threatcount += 4
 
