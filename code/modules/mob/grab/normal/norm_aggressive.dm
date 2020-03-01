@@ -26,11 +26,18 @@
 		if(affecting_mob.lying)
 			affecting_mob.Weaken(4)
 
-/decl/grab/normal/aggressive/can_upgrade(var/obj/item/grab/G)
-	. = ..()
-	if(.)
-		if(!ishuman(G.affecting))
-			to_chat(G.assailant, SPAN_WARNING("You can only upgrade an aggressive grab when grappling a human!"))
+	// Keeps those who are on the ground down - mostly
+	if(affecting.lying && prob(50))
+		affecting.Weaken(2)
+
+/datum/grab/normal/aggressive/can_upgrade(var/obj/item/grab/G)
+	if(!(G.target_zone in list(BP_CHEST, BP_HEAD)))
+		to_chat(G.assailant, "<span class='warning'>You need to be grabbing their torso or head for this!</span>")
+		return FALSE
+	var/obj/item/clothing/C = G.affecting.head
+	if(istype(C)) //hardsuit helmets etc
+		if((C.max_pressure_protection) && C.armor["melee"] > 20)
+			to_chat(G.assailant, "<span class='warning'>\The [C] is in the way!</span>")
 			return FALSE
 		if(!(G.target_zone in list(BP_CHEST, BP_HEAD)))
 			to_chat(G.assailant, SPAN_WARNING("You need to be grabbing their torso or head for this!"))

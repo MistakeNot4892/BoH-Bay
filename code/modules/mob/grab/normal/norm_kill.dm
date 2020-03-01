@@ -24,7 +24,7 @@
 	affecting.drop_r_hand()
 	if(affecting.lying)
 		affecting.Weaken(4)
-	affecting.adjustOxyLoss(1)
+	affecting.adjustOxyLoss(3)
 	affecting.apply_effect(STUTTER, 5) //It will hamper your voice, being choked and all.
 	affecting.Weaken(5)	//Should keep you down unless you get help.
 	if(iscarbon(affecting))
