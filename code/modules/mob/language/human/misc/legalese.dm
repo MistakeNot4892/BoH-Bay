@@ -1,4 +1,4 @@
-/datum/language/legal
+/*/datum/language/legal
 	name = LANGUAGE_LEGALESE
 	desc = "A cryptic language used by interstellar bureaucrats and lawyers."
 	speech_verb = "states"
@@ -15,4 +15,4 @@
 		"lawful", "suit of law", "sequestrator", "et al", "et", "ex", "quid", "bono",	"quo", "pro", "ad"
 	)
 	shorthand = "LG"
-	
+	/
