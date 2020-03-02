@@ -1,7 +1,7 @@
 //Human
 #define LANGUAGE_HUMAN             "Common"
 #define LANGUAGE_NYMPH             "Nymph"
-#define LANGUAGE_HUMAN_GAIAN     "Gaian"
+#define LANGUAGE_HUMAN_GAIAN     "Neo-Cossack"
 
 //Human misc
 #define LANGUAGE_GUTTER         "Gutter"
