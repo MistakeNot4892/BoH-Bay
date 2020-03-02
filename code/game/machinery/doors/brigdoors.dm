@@ -197,7 +197,7 @@
 		for(var/obj/machinery/flasher/F in targets)
 			F.flash()
 		. =  TOPIC_REFRESH
-		
+
 	if (href_list["adjust"])
 		timetoset += text2num(href_list["adjust"])
 		timetoset = Clamp(timetoset, 0, 36000)
