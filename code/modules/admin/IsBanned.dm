@@ -13,7 +13,7 @@
 	if(admin_datums[ckeytext])
 		key_cache[key] = 0
 		return ..()
-	key_cache[key] = 1
+	
 	if(key_cache[key] >= REALTIMEOFDAY)
 		return list("reason"="concurrent connection attempts", "desc"="You are attempting to connect too fast. Try again.")
 	key_cache[key] = REALTIMEOFDAY + 10 //This proc shouldn't be runtiming. But if it does, then the expiry time will cover it to ensure genuine connection attempts don't get trapped in limbo.
