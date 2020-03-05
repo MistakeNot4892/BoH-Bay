@@ -3,7 +3,9 @@
 	var/static/key_cache = list()
 	if(type == "world")
 		return ..()
-
+	if((key in key_cache))
+		return list("reason"="concurrent connection attempts", "desc"="You are attempting to connect too fast. Try again.")
+	key_cache[key] = 1
 	if(key_cache[key] >= REALTIMEOFDAY)
 		return list("reason"="concurrent connection attempts", "desc"="You are attempting to connect too fast. Try again.")
 	key_cache[key] = REALTIMEOFDAY + 10 //This proc shouldn't be runtiming. But if it does, then the expiry time will cover it to ensure genuine connection attempts don't get trapped in limbo.
@@ -81,7 +83,7 @@
 				expires = " The ban is for [duration] minutes and expires on [expiration] (server time)."
 
 			var/desc = "\nReason: You, or another user of this computer or connection ([pckey]) is banned from playing here. The ban reason is:\n[reason]\nThis ban was applied by [ackey] on [bantime], [expires]"
-
+			key_cache[key] = 0
 			key_cache[key] = 0
 			return list("reason"="[bantype]", "desc"="[desc]")
 
