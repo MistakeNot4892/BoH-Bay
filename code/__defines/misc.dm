@@ -40,7 +40,7 @@
 #define     IMPCHEM_HUD 6 // Chemical implant.
 #define    IMPTRACK_HUD 7 // Tracking implant.
 #define SPECIALROLE_HUD 8 // AntagHUD image.
-#define  STATUS_HUD_OOC 9 // STATUS_HUD without check for someone being ill.
+#define  STATUS_HUD_OOC 9 // STATUS_HUD without virus DB check for someone being ill.
 #define 	  LIFE_HUD 10 // STATUS_HUD that only reports dead or alive
 
 // Shuttle moving status.
@@ -77,7 +77,7 @@
 //Area flags, possibly more to come
 #define AREA_FLAG_RAD_SHIELDED      1 // shielded from radiation, clearly
 #define AREA_FLAG_EXTERNAL          2 // External as in exposed to space, not outside in a nice, green, forest
-#define AREA_FLAG_ION_SHIELDED      4 // shielded from ionospheric anomalies
+#define AREA_FLAG_ION_SHIELDED      4 // shielded from ionospheric anomalies as an FBP / IPC
 #define AREA_FLAG_IS_NOT_PERSISTENT 8 // SSpersistence will not track values from this area.
 
 //Map template flags
@@ -176,9 +176,6 @@
 #define AI_RESTOREPOWER_CONNECTED 4
 #define AI_RESTOREPOWER_COMPLETED 5
 
-// AI button defines
-#define AI_BUTTON_PROC_BELONGS_TO_CALLER 1
-#define AI_BUTTON_INPUT_REQUIRES_SELECTION 2
 
 // Values represented as Oxyloss. Can be tweaked, but make sure to use integers only.
 #define AI_POWERUSAGE_LOWPOWER 1
@@ -199,6 +196,12 @@
 #define DEFAULT_SPAWNPOINT_ID "Default"
 
 #define MIDNIGHT_ROLLOVER		864000	//number of deciseconds in a day
+
+//Virus badness defines
+#define VIRUS_MILD			1
+#define VIRUS_COMMON		2	//Random events don't go higher (mutations aside)
+#define VIRUS_ENGINEERED	3
+#define VIRUS_EXOTIC		4	//Usually adminbus only
 
 //Error handler defines
 #define ERROR_USEFUL_LEN 2
@@ -269,24 +272,34 @@
 #define HTTP_POST_DLL_LOCATION (world.system_type == MS_WINDOWS ? WINDOWS_HTTP_POST_DLL_LOCATION : UNIX_HTTP_POST_DLL_LOCATION)
 #endif
 
-// Surgery candidate flags.
-#define SURGERY_NO_ROBOTIC        1
-#define SURGERY_NO_CRYSTAL        2
-#define SURGERY_NO_STUMP          4
-#define SURGERY_NO_FLESH          8
-#define SURGERY_NEEDS_INCISION   16
-#define SURGERY_NEEDS_RETRACTED  32
-#define SURGERY_NEEDS_ENCASEMENT 64
+//Recipe type defines. Used to determine what machine makes them
+#define MICROWAVE			0x1
+#define FRYER				0x2
+#define OVEN				0x4
+#define CANDYMAKER			0x8
+#define CEREALMAKER			0x10
+#define PAN					0x20
 
-// Structure interaction flags
-#define TOOL_INTERACTION_ANCHOR      1
-#define TOOL_INTERACTION_DECONSTRUCT 2
-#define TOOL_INTERACTION_WIRING      4
-#define TOOL_INTERACTION_ALL         (TOOL_INTERACTION_ANCHOR | TOOL_INTERACTION_DECONSTRUCT | TOOL_INTERACTION_WIRING)
+//Used to get recipes.
+#define RECIPE_LIST(T) (SScuisine.recipe_datums["[T]"])
 
-//Inserts 'a' or 'an' before X in ways \a doesn't allow
-#define ADD_ARTICLE(X) "[(lowertext(copytext(X, 1, 2)) in list("a", "e", "i", "o", "u")) ? "an" : "a"] [X]"
+// Used for creating soft references to objects. A manner of storing an item reference
+// as text so you don't necessarily fuck with an object's ability to be garbage collected.
+// Ported from Aurora.
+#if DM_VERSION < 513
 
-#define SOULSTONE_CRACKED -1
-#define SOULSTONE_EMPTY 0
-#define SOULSTONE_ESSENCE 1
+#define SOFTREF(A) "\ref[A]"
+
+#else
+
+#define SOFTREF(A) ref(A)
+
+#endif
+
+// Span define, ported from Aurora
+#define span(class, text) ("<span class='[class]'>[text]</span>")
+
+// NULL_OR_EQUAL define, ported from Aurora
+#define NULL_OR_EQUAL(self,other) (!(self) || (self) == (other))
+
+

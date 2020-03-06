@@ -6,17 +6,15 @@
 	icon = 'icons/obj/trash.dmi'
 	w_class = ITEM_SIZE_SMALL
 	desc = "This is rubbish."
-	matter = list(MAT_PLASTIC = 200)
 	var/age = 0
 
-/obj/item/trash/Initialize(mapload, var/_age)
-	. = ..(mapload)
+/obj/item/trash/New(var/newloc, var/_age)
+	..(newloc)
 	if(!isnull(_age))
 		age = _age
 
-/obj/item/trash/Initialize(var/ml)
-	if(!ml)
-		SSpersistence.track_value(src, /datum/persistent/filth/trash)
+/obj/item/trash/Initialize()
+	SSpersistence.track_value(src, /datum/persistent/filth/trash)
 	. = ..()
 
 /obj/item/trash/Destroy()
@@ -185,5 +183,21 @@
 	desc = "a stick from some snack food item or a lollipop, not even useful as crafting material."
 	icon_state = "stick"
 
-/obj/item/trash/attack(mob/M, mob/living/user)
+/obj/item/trash/brownies
+	name = "square tray"
+	icon_state = "brownies"
+
+/obj/item/trash/snacktray
+	name = "snacktray"
+	icon_state = "snacktray"
+
+/obj/item/trash/dipbowl
+	name = "dip bowl"
+	icon_state = "dipbowl"
+
+/obj/item/trash/chipbasket
+	name = "empty basket"
+	icon_state = "chipbasket_empty"
+
+/obj/item/trash/attack(mob/M as mob, mob/living/user as mob)
 	return

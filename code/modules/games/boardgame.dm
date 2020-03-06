@@ -1,4 +1,4 @@
-/obj/item/board
+/obj/item/weapon/board
 	name = "board"
 	desc = "A standard 16\" checkerboard. Well used." //Goddamn imperial system.
 	icon = 'icons/obj/pieces.dmi'
@@ -9,24 +9,24 @@
 	var/board = list()
 	var/selected = -1
 
-/obj/item/board/ShiftClick(mob/user)
+/obj/item/weapon/board/ShiftClick(mob/user)
 	if(CanPhysicallyInteract(user))
 		user.set_machine(src)
 		interact(user)
 	else
 		..()
 
-/obj/item/board/attack_hand(mob/living/carbon/human/M)
+/obj/item/weapon/board/attack_hand(mob/living/carbon/human/M as mob)
 	if(M.machine == src)
 		return ..()
 	else
 		M.examinate(src)
 
-obj/item/board/attackby(obj/item/I, mob/user)
+obj/item/weapon/board/attackby(obj/item/I as obj, mob/user as mob)
 	if(!addPiece(I,user))
 		..()
 
-/obj/item/board/proc/addPiece(obj/item/I, mob/user, var/tile = 0)
+/obj/item/weapon/board/proc/addPiece(obj/item/I as obj, mob/user as mob, var/tile = 0)
 	if(I.w_class != ITEM_SIZE_TINY) //only small stuff
 		user.show_message("<span class='warning'>\The [I] is too big to be used as a board piece.</span>")
 		return 0
@@ -60,9 +60,9 @@ obj/item/board/attackby(obj/item/I, mob/user)
 	return 1
 
 
-/obj/item/board/interact(mob/user)
+/obj/item/weapon/board/interact(mob/user as mob)
 	if(user.is_physically_disabled() || (!isAI(user) && !user.Adjacent(src))) //can't see if you arent conscious. If you are not an AI you can't see it unless you are next to it, either.
-		close_browser(user, "window=boardgame")
+		user << browse(null, "window=boardgame")
 		user.unset_machine()
 		return
 
@@ -86,7 +86,7 @@ obj/item/board/attackby(obj/item/I, mob/user)
 
 		if(board["[i]"])
 			var/obj/item/I = board["[i]"]
-			send_rsc(user, board_icons["[I.icon] [I.icon_state]"], "[I.icon_state].png")
+			user << browse_rsc(board_icons["[I.icon] [I.icon_state]"],"[I.icon_state].png")
 			dat += " style='background-image:url([I.icon_state].png)'>"
 		else
 			dat+= ">"
@@ -98,13 +98,13 @@ obj/item/board/attackby(obj/item/I, mob/user)
 
 	if(selected >= 0 && !isobserver(user))
 		dat += "<br><A href='?src=\ref[src];remove=0'>Remove Selected Piece</A>"
-	show_browser(user, jointext(dat, null), "window=boardgame;size=430x500") // 50px * 8 squares + 30 margin
+	user << browse(jointext(dat, null),"window=boardgame;size=430x500") // 50px * 8 squares + 30 margin
 	onclose(usr, "boardgame")
 
-/obj/item/board/Topic(href, href_list)
+/obj/item/weapon/board/Topic(href, href_list)
 	if(!usr.Adjacent(src))
 		usr.unset_machine()
-		close_browser(usr, "window=boardgame")
+		usr << browse(null, "window=boardgame")
 		return
 
 	if(!usr.incapacitated()) //you can't move pieces if you can't move
@@ -163,65 +163,65 @@ obj/item/board/attackby(obj/item/I, mob/user)
 
 //Checkers
 
-/obj/item/chems/food/snacks/checker
+/obj/item/weapon/reagent_containers/food/snacks/checker
 	name = "checker"
 	desc = "It is plastic and shiny."
 	icon = 'icons/obj/pieces.dmi'
 	icon_state = "checker_black"
 	w_class = ITEM_SIZE_TINY
-	center_of_mass = @"{'x':16,'y':16}"
-	nutriment_desc = list("a choking hazard" = 4)
-	nutriment_amt = 1
+	center_of_mass = "x=16;y=16"
+	reagents_to_add = list(/datum/reagent/nutriment = 1)
+	reagent_data = list(/datum/reagent/nutriment = list("a choking hazard" = 4))
 	var/piece_color ="black"
 
-/obj/item/chems/food/snacks/checker/Initialize()
-	. = ..()
+/obj/item/weapon/reagent_containers/food/snacks/checker/New()
+	..()
 	icon_state = "[name]_[piece_color]"
 	name = "[piece_color] [name]"
 
-/obj/item/chems/food/snacks/checker/red
+/obj/item/weapon/reagent_containers/food/snacks/checker/red
 	piece_color ="red"
 
 //Chess
 
-/obj/item/chems/food/snacks/checker/pawn
+/obj/item/weapon/reagent_containers/food/snacks/checker/pawn
 	name = "pawn"
 	desc = "How many pawns will die in your war?"
 
-/obj/item/chems/food/snacks/checker/pawn/red
+/obj/item/weapon/reagent_containers/food/snacks/checker/pawn/red
 	piece_color ="red"
 
-/obj/item/chems/food/snacks/checker/knight
+/obj/item/weapon/reagent_containers/food/snacks/checker/knight
 	name = "knight"
 	desc = "The piece chess deserves, and needs to actually play."
 
-/obj/item/chems/food/snacks/checker/knight/red
+/obj/item/weapon/reagent_containers/food/snacks/checker/knight/red
 	piece_color ="red"
 
-/obj/item/chems/food/snacks/checker/bishop
+/obj/item/weapon/reagent_containers/food/snacks/checker/bishop
 	name = "bishop"
 	desc = "What corruption occured, urging holy men to fight?"
 
-/obj/item/chems/food/snacks/checker/bishop/red
+/obj/item/weapon/reagent_containers/food/snacks/checker/bishop/red
 	piece_color ="red"
 
-/obj/item/chems/food/snacks/checker/rook
+/obj/item/weapon/reagent_containers/food/snacks/checker/rook
 	name = "rook"
 	desc = "Representing ancient moving towers. So powerful and fast they were banned from wars, forever."
 
-/obj/item/chems/food/snacks/checker/rook/red
+/obj/item/weapon/reagent_containers/food/snacks/checker/rook/red
 	piece_color ="red"
 
-/obj/item/chems/food/snacks/checker/queen
+/obj/item/weapon/reagent_containers/food/snacks/checker/queen
 	name = "queen"
 	desc = "A queen of battle and pain. She dances across the battlefield."
 
-/obj/item/chems/food/snacks/checker/queen/red
+/obj/item/weapon/reagent_containers/food/snacks/checker/queen/red
 	piece_color ="red"
 
-/obj/item/chems/food/snacks/checker/king
+/obj/item/weapon/reagent_containers/food/snacks/checker/king
 	name = "king"
 	desc = "Why does a chess game end when the king dies?"
 
-/obj/item/chems/food/snacks/checker/king/red
+/obj/item/weapon/reagent_containers/food/snacks/checker/king/red
 	piece_color ="red"

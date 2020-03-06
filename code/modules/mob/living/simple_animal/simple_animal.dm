@@ -9,11 +9,11 @@
 	mob_swap_flags = MONKEY|SLIME|SIMPLE_ANIMAL
 	mob_push_flags = MONKEY|SLIME|SIMPLE_ANIMAL
 
-	meat_type = /obj/item/chems/food/snacks/meat
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
 	meat_amount = 3
-	bone_material = MAT_BONE_GENERIC
+	bone_material = MATERIAL_BONE_GENERIC
 	bone_amount = 5
-	skin_material = MAT_SKIN_GENERIC 
+	skin_material = MATERIAL_SKIN_GENERIC
 	skin_amount = 5
 
 	var/show_stat_health = 1	//does the percentage health show in the stat panel for the mob
@@ -31,7 +31,7 @@
 	var/turns_since_move = 0
 	var/stop_automated_movement = 0 //Use this to temporarely stop random movement or to if you write special movement code for animals.
 	var/wander = 1	// Does the mob wander around when idle?
-	var/stop_automated_movement_when_pulled = 1 //When set to 1 this stops the animal from moving when someone is grabbing it.
+	var/stop_automated_movement_when_pulled = 1 //When set to 1 this stops the animal from moving when someone is pulling it.
 
 	//Interaction
 	var/response_help   = "tries to help"
@@ -48,8 +48,8 @@
 	var/fire_alert = 0
 
 	//Atmos effect - Yes, you can make creatures that require phoron or co2 to survive. N2O is a trace gas and handled separately, hence why it isn't here. It'd be hard to add it. Hard and me don't mix (Yes, yes make all the dick jokes you want with that.) - Errorage
-	var/list/min_gas = list(MAT_OXYGEN = 5)
-	var/list/max_gas = list(MAT_PHORON = 1, MAT_CO2 = 5)
+	var/list/min_gas = list(GAS_OXYGEN = 5)
+	var/list/max_gas = list(GAS_PHORON = 1, GAS_CO2 = 5)
 
 	var/unsuitable_atmos_damage = 2	//This damage is taken when atmos doesn't fit all the requirements above
 	var/speed = 0 //LETS SEE IF I CAN SET SPEEDS FOR SIMPLE MOBS WITHOUT DESTROYING EVERYTHING. Higher speed is slower, negative speed is faster
@@ -71,7 +71,7 @@
 	//Null rod stuff
 	var/supernatural = 0
 	var/purge = 0
-	
+
 	var/bleed_ticks = 0
 	var/bleed_colour = COLOR_BLOOD_HUMAN
 	var/can_bleed = TRUE
@@ -86,6 +86,8 @@
 	//for simple animals that reflect damage when attacked in melee
 	var/return_damage_min
 	var/return_damage_max
+
+	var/kitchen_tag
 
 /mob/living/simple_animal/Initialize()
 	. = ..()
@@ -122,7 +124,7 @@
 	handle_confused()
 	handle_supernatural()
 	handle_impaired_vision()
-	
+
 	if(can_bleed && bleed_ticks > 0)
 		handle_bleeding()
 
@@ -139,9 +141,10 @@
 	if(!client && !stop_automated_movement && wander && !anchored)
 		if(isturf(src.loc) && !resting)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
 			turns_since_move++
-			if(turns_since_move >= turns_per_move && (!(stop_automated_movement_when_pulled) || !LAZYLEN(grabbed_by))) //Some animals don't move when pulled
-				SelfMove(pick(GLOB.cardinal))
-				turns_since_move = 0
+			if(turns_since_move >= turns_per_move)
+				if(!(stop_automated_movement_when_pulled && pulledby)) //Some animals don't move when pulled
+					SelfMove(pick(GLOB.cardinal))
+					turns_since_move = 0
 
 	//Speaking
 	if(!client && speak_chance)
@@ -238,7 +241,7 @@
 	Proj.on_hit(src)
 	return 0
 
-/mob/living/simple_animal/attack_hand(mob/living/carbon/human/M)
+/mob/living/simple_animal/attack_hand(mob/living/carbon/human/M as mob)
 	..()
 
 	switch(M.a_intent)
@@ -256,13 +259,12 @@
 		if(I_HURT)
 			var/dealt_damage = harm_intent_damage
 			var/harm_verb = response_harm
-			if(ishuman(M))
-				var/decl/natural_attack/attack = M.get_unarmed_attack(src)
-				if(istype(attack))
-					dealt_damage = attack.damage <= dealt_damage ? dealt_damage : attack.damage
-					harm_verb = pick(attack.attack_verb)
-					if(attack.sharp || attack.edge)
-						adjustBleedTicks(dealt_damage)
+			if(ishuman(M) && M.species)
+				var/datum/unarmed_attack/attack = M.get_unarmed_attack(src)
+				dealt_damage = attack.damage <= dealt_damage ? dealt_damage : attack.damage
+				harm_verb = pick(attack.attack_verb)
+				if(attack.sharp || attack.edge)
+					adjustBleedTicks(dealt_damage)
 
 			adjustBruteLoss(dealt_damage)
 			M.visible_message("<span class='warning'>[M] [harm_verb] \the [src]!</span>")
@@ -286,13 +288,13 @@
 			to_chat(user, "<span class='notice'>\The [src] is dead, medical items won't bring \him back to life.</span>")
 		return
 
-	if(istype(O, /obj/item/flash))
+	if(istype(O, /obj/item/device/flash))
 		if(stat != DEAD)
 			O.attack(src, user, user.zone_sel.selecting)
 			return
 
 	if(meat_type && (stat == DEAD) && meat_amount)
-		if(istype(O, /obj/item/material/knife/kitchen/cleaver))
+		if(istype(O, /obj/item/weapon/material/knife/kitchen/cleaver))
 			var/victim_turf = get_turf(src)
 			if(!locate(/obj/structure/table, victim_turf))
 				to_chat(user, SPAN_NOTICE("You need to place \the [src] on a table to butcher it."))
@@ -304,14 +306,14 @@
 					to_chat(user, SPAN_NOTICE("You botch harvesting \the [src], and ruin some of the meat in the process."))
 					subtract_meat(user)
 					return
-				else	
+				else
 					harvest(user, user.get_skill_value(SKILL_COOKING))
 					return
 			else
 				to_chat(user, SPAN_NOTICE("Your hand slips with your movement, and some of the meat is ruined."))
 				subtract_meat(user)
 				return
-				
+
 	else
 		if(!O.force)
 			visible_message("<span class='notice'>[user] gently taps [src] with \the [O].</span>")
@@ -331,7 +333,7 @@
 		damage = 0
 	if (O.damtype == STUN)
 		damage = (O.force / 8)
-	if(supernatural && istype(O,/obj/item/nullrod))
+	if(supernatural && istype(O,/obj/item/weapon/nullrod))
 		damage *= 2
 		purge = 3
 	adjustBruteLoss(damage)
@@ -449,7 +451,7 @@
 				var/obj/effect/decal/cleanable/blood/B = blood_splatter(get_step(src, hit_dir), src, 1, hit_dir)
 				B.icon_state = pick("dir_splatter_1","dir_splatter_2")
 				B.basecolor = bleed_colour
-				var/scale = min(1, round(mob_size / MOB_SIZE_MEDIUM, 0.1))
+				var/scale = min(1, round(mob_size / MOB_MEDIUM, 0.1))
 				var/matrix/M = new()
 				B.transform = M.Scale(scale)
 				B.update_icon()
@@ -475,13 +477,13 @@
 		bleed_ticks = max(bleed_ticks, amount)
 	else
 		bleed_ticks = max(bleed_ticks + amount, 0)
-		
+
 	bleed_ticks = round(bleed_ticks)
-	
+
 /mob/living/simple_animal/proc/handle_bleeding()
 	bleed_ticks--
 	adjustBruteLoss(1)
-	
+
 	var/obj/effect/decal/cleanable/blood/drip/drip = new(get_turf(src))
 	drip.basecolor = bleed_colour
 	drip.update_icon()
@@ -497,7 +499,7 @@
 			return FLASH_PROTECTION_NONE
 		if(0)
 			return FLASH_PROTECTION_MAJOR
-		else 
+		else
 			return FLASH_PROTECTION_MAJOR
 
 /mob/living/simple_animal/proc/reflect_unarmed_damage(var/mob/living/carbon/human/attacker, var/damage_type, var/description)

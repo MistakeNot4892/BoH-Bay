@@ -104,9 +104,16 @@
 	var/aw_delam = FALSE
 	var/aw_EPR = FALSE
 
+	var/datum/looping_sound/supermatter/soundloop
+
 /obj/machinery/power/supermatter/Initialize()
 	. = ..()
 	uid = gl_uid++
+	soundloop = new(list(src), TRUE)
+
+/obj/machinery/power/supermatter/Destroy()
+	QDEL_NULL(soundloop)
+	return ..()
 
 /obj/machinery/power/supermatter/proc/handle_admin_warnings()
 	if(disable_adminwarn)
@@ -317,6 +324,11 @@
 	if(!istype(L)) 	//We are in a crate or somewhere that isn't turf, if we return to turf resume processing but for now.
 		return  //Yeah just stop.
 
+	if(power)
+		soundloop.volume = min(100, (round(power/7)+1))
+	else
+		soundloop.volume = 0
+
 	if(damage > explosion_point)
 		if(!exploded)
 			if(!istype(L, /turf/space) && (L.z in GLOB.using_map.station_levels))
@@ -356,7 +368,7 @@
 
 		//Ok, 100% oxygen atmosphere = best reaction
 		//Maxes out at 100% oxygen pressure
-		oxygen = Clamp((removed.get_by_flag(XGM_GAS_OXIDIZER) - (removed.gas[MAT_NITROGEN] * nitrogen_retardation_factor)) / removed.total_moles, 0, 1)
+		oxygen = Clamp((removed.get_by_flag(XGM_GAS_OXIDIZER) - (removed.gas[GAS_NITROGEN] * nitrogen_retardation_factor)) / removed.total_moles, 0, 1)
 
 		//calculate power gain for oxygen reaction
 		var/temp_factor
@@ -377,8 +389,8 @@
 
 		//Release reaction gasses
 		var/heat_capacity = removed.heat_capacity()
-		removed.adjust_multi(MAT_PHORON, max(device_energy / phoron_release_modifier, 0), \
-		                     MAT_OXYGEN, max((device_energy + removed.temperature - T0C) / oxygen_release_modifier, 0))
+		removed.adjust_multi(GAS_PHORON, max(device_energy / phoron_release_modifier, 0), \
+		                     GAS_OXYGEN, max((device_energy + removed.temperature - T0C) / oxygen_release_modifier, 0))
 
 		var/thermal_power = thermal_release_modifier * device_energy
 		if (debug)
@@ -395,7 +407,7 @@
 		var/obj/item/organ/internal/eyes/eyes = subject.internal_organs_by_name[BP_EYES]
 		if (!eyes)
 			continue
-		if (BP_IS_PROSTHETIC(eyes))
+		if (BP_IS_ROBOTIC(eyes))
 			continue
 		if(subject.has_meson_effect())
 			continue
@@ -424,7 +436,7 @@
 		damage += proj_damage * config_bullet_energy
 	return 0
 
-/obj/machinery/power/supermatter/attack_robot(mob/user)
+/obj/machinery/power/supermatter/attack_robot(mob/user as mob)
 	if(Adjacent(user))
 		return attack_hand(user)
 	else
@@ -437,7 +449,7 @@
 /obj/machinery/power/supermatter/attack_ghost(mob/user)
 	ui_interact(user)
 
-/obj/machinery/power/supermatter/attack_hand(mob/user)
+/obj/machinery/power/supermatter/attack_hand(mob/user as mob)
 	user.visible_message("<span class=\"warning\">\The [user] reaches out and touches \the [src], inducing a resonance... \his body starts to glow and bursts into flames before flashing into ash.</span>",\
 		"<span class=\"danger\">You reach out and touch \the [src]. Everything starts burning and all you can hear is ringing. Your last thought is \"That was not a wise decision.\"</span>",\
 		"<span class=\"warning\">You hear an uneartly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat.</span>")
@@ -472,8 +484,8 @@
 		ui.set_auto_update(1)
 
 
-/obj/machinery/power/supermatter/attackby(obj/item/W, mob/living/user)
-	if(istype(W, /obj/item/tape_roll))
+/obj/machinery/power/supermatter/attackby(obj/item/weapon/W as obj, mob/living/user as mob)
+	if(istype(W, /obj/item/weapon/tape_roll))
 		to_chat(user, "You repair some of the damage to \the [src] with \the [W].")
 		damage = max(damage -10, 0)
 
@@ -487,7 +499,7 @@
 	user.apply_damage(150, IRRADIATE, damage_flags = DAM_DISPERSED)
 
 
-/obj/machinery/power/supermatter/Bumped(atom/AM)
+/obj/machinery/power/supermatter/Bumped(atom/AM as mob|obj)
 	if(istype(AM, /obj/effect))
 		return
 	if(istype(AM, /mob/living))
