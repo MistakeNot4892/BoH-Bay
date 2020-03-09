@@ -6,18 +6,30 @@
 
 	heat_protection = HEAD
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT, 
-		bullet = ARMOR_BALLISTIC_MINOR, 
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
 		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR, 
-		bomb = ARMOR_BOMB_PADDED, 
-		bio = ARMOR_BIO_SHIELDED, 
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_MINOR
 		)
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	max_pressure_protection = VOIDSUIT_MAX_PRESSURE
 	min_pressure_protection = 0
 	siemens_coefficient = 0.4
+
+	//Species-specific stuff.
+	species_restricted = list(SPECIES_HUMAN,SPECIES_IPC)
+	sprite_sheets = list(
+		SPECIES_UNATHI = 'icons/mob/species/unathi/onmob_head_helmet_unathi.dmi',
+		SPECIES_OLDUNATHI = 'icons/mob/species/unathi/onmob_head_helmet_unathi.dmi',
+		SPECIES_SKRELL = 'icons/mob/species/skrell/onmob_head_skrell.dmi',
+		)
+	sprite_sheets_obj = list(
+		SPECIES_UNATHI = 'icons/obj/clothing/species/unathi/obj_head_unathi.dmi',
+		SPECIES_SKRELL = 'icons/obj/clothing/species/skrell/obj_head_skrell.dmi',
+		)
 
 	light_overlay = "helmet_light"
 
@@ -27,19 +39,29 @@
 	w_class = ITEM_SIZE_HUGE//bulky item
 	desc = "A high-tech dark red space suit. Used for AI satellite maintenance."
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT, 
-		bullet = ARMOR_BALLISTIC_MINOR, 
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
 		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR, 
-		bomb = ARMOR_BOMB_PADDED, 
-		bio = ARMOR_BIO_SHIELDED, 
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_MINOR
 		)
-	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit)
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit)
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	max_pressure_protection = VOIDSUIT_MAX_PRESSURE
 	siemens_coefficient = 0.4
+
+	species_restricted = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_IPC)
+	sprite_sheets = list(
+		SPECIES_UNATHI = 'icons/mob/species/unathi/onmob_suit_unathi.dmi',
+		SPECIES_SKRELL = 'icons/mob/species/skrell/onmob_suit_skrell.dmi',
+		)
+	sprite_sheets_obj = list(
+		SPECIES_UNATHI = 'icons/obj/clothing/species/unathi/obj_suit_unathi.dmi',
+		SPECIES_SKRELL = 'icons/obj/clothing/species/skrell/obj_suit_skrell.dmi',
+		)
 
 	//Breach thresholds, should ideally be inherited by most (if not all) voidsuits.
 	//With 0.2 resiliance, will reach 10 breach damage after 3 laser carbine blasts or 8 smg hits.
@@ -49,7 +71,7 @@
 	//Inbuilt devices.
 	var/obj/item/clothing/shoes/magboots/boots = null // Deployable boots, if any.
 	var/obj/item/clothing/head/helmet/helmet = null   // Deployable helmet, if any.
-	var/obj/item/tank/tank = null              // Deployable tank, if any.
+	var/obj/item/weapon/tank/tank = null              // Deployable tank, if any.
 
 	action_button_name = "Toggle Helmet"
 	var/helmet_deploy_sound = 'sound/items/helmet_close.ogg'
@@ -67,7 +89,7 @@ else if(##equipment_var) {\
 	. = ..()
 	VOIDSUIT_INIT_EQUIPMENT(boots,  /obj/item/clothing/shoes/magboots)
 	VOIDSUIT_INIT_EQUIPMENT(helmet, /obj/item/clothing/head/helmet)
-	VOIDSUIT_INIT_EQUIPMENT(tank,   /obj/item/tank)
+	VOIDSUIT_INIT_EQUIPMENT(tank,   /obj/item/weapon/tank)
 
 #undef VOIDSUIT_INIT_EQUIPMENT
 
@@ -207,14 +229,14 @@ else if(##equipment_var) {\
 	src.tank = null
 	playsound(loc, 'sound/effects/spray3.ogg', 50)
 
-/obj/item/clothing/suit/space/void/attackby(obj/item/W, mob/user)
+/obj/item/clothing/suit/space/void/attackby(obj/item/W as obj, mob/user as mob)
 
 	if(!istype(user,/mob/living)) return
 
-	if(istype(W,/obj/item/clothing/accessory) || istype(W, /obj/item/hand_labeler))
+	if(istype(W,/obj/item/clothing/accessory) || istype(W, /obj/item/weapon/hand_labeler))
 		return ..()
 
-	if(istype(W,/obj/item/screwdriver))
+	if(istype(W,/obj/item/weapon/screwdriver))
 		if(user.get_inventory_slot(src) == slot_wear_suit)//maybe I should make this into a proc?
 			to_chat(user, "<span class='warning'>You cannot modify \the [src] while it is being worn.</span>")
 			return
@@ -265,7 +287,7 @@ else if(##equipment_var) {\
 			boots = W
 			playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
 		return
-	else if(istype(W,/obj/item/tank))
+	else if(istype(W,/obj/item/weapon/tank))
 		if(user.get_inventory_slot(src) == slot_wear_suit)
 			to_chat(user, "<span class='warning'>You cannot modify \the [src] while it is being worn.</span>")
 			return

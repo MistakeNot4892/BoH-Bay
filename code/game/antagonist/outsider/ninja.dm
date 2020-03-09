@@ -15,7 +15,7 @@ GLOBAL_DATUM_INIT(ninjas, /datum/antagonist/ninja, new)
 	hard_cap_round = 3
 	min_player_age = 18
 
-	id_type = /obj/item/card/id/syndicate
+	id_type = /obj/item/weapon/card/id/syndicate
 
 	faction = "ninja"
 	base_to_load = /datum/map_template/ruin/antag_spawn/ninja
@@ -86,12 +86,12 @@ GLOBAL_DATUM_INIT(ninjas, /datum/antagonist/ninja, new)
 /datum/antagonist/ninja/equip(var/mob/living/carbon/human/player)
 	. = ..()
 	if(.)
-		var/obj/item/radio/R = new /obj/item/radio/headset(player)
+		var/obj/item/device/radio/R = new /obj/item/device/radio/headset(player)
 		player.equip_to_slot_or_del(R, slot_l_ear)
 		player.equip_to_slot_or_del(new /obj/item/clothing/under/color/black(player), slot_w_uniform)
-		player.equip_to_slot_or_del(new /obj/item/flashlight(player), slot_belt)
+		player.equip_to_slot_or_del(new /obj/item/device/flashlight(player), slot_belt)
 		create_id("Infiltrator", player)
-		equip_rig(/obj/item/rig/light/ninja, player)
+		equip_rig(/obj/item/weapon/rig/light/ninja, player)
 		var/obj/item/modular_computer/pda/syndicate/U = new
 		player.put_in_hands(U)
 		var/decl/uplink_source/pda/uplink_source = new
@@ -99,7 +99,7 @@ GLOBAL_DATUM_INIT(ninjas, /datum/antagonist/ninja, new)
 
 /datum/antagonist/ninja/proc/generate_ninja_directive(side)
 	var/directive = "[side=="face"?"[GLOB.using_map.company_name]":"A criminal syndicate"] is your employer. "//Let them know which side they're on.
-	switch(rand(1,18))
+	switch(rand(1,19))
 		if(1)
 			directive += "The Spider Clan must not be linked to this operation. Remain hidden and covert when possible."
 		if(2)
@@ -127,12 +127,15 @@ GLOBAL_DATUM_INIT(ninjas, /datum/antagonist/ninja, new)
 		if(13)
 			directive += "Some disgruntled [GLOB.using_map.company_name] employees have been supportive of our operations. Be wary of any mistreatment by command staff."
 		if(14)
-			directive += "The Spider Clan has recently been accused of religious insensitivity. Attempt to speak with the Chaplain and prove these accusations false."
+			var/xenorace = pick(SPECIES_UNATHI,SPECIES_SKRELL)
+			directive += "A group of [xenorace] radicals have been loyal supporters of the Spider Clan. Favor [xenorace] crew whenever possible."
 		if(15)
-			directive += "The Spider Clan has been bargaining with a competing prosthetics manufacturer. Try to shine [GLOB.using_map.company_name] prosthetics in a bad light."
+			directive += "The Spider Clan has recently been accused of religious insensitivity. Attempt to speak with the Chaplain and prove these accusations false."
 		if(16)
-			directive += "The Spider Clan has recently begun recruiting outsiders. Consider suitable candidates and assess their behavior amongst the crew."
+			directive += "The Spider Clan has been bargaining with a competing prosthetics manufacturer. Try to shine [GLOB.using_map.company_name] prosthetics in a bad light."
 		if(17)
+			directive += "The Spider Clan has recently begun recruiting outsiders. Consider suitable candidates and assess their behavior amongst the crew."
+		if(18)
 			directive += "A cyborg liberation group has expressed interest in our serves. Prove the Spider Clan merciful towards law-bound synthetics."
 		else
 			directive += "There are no special supplemental instructions at this time."

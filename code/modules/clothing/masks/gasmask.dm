@@ -15,13 +15,13 @@
 		bio = ARMOR_BIO_STRONG
 		)
 	filtered_gases = list(
-		MAT_PHORON,
-		MAT_N2O,
-		MAT_CHLORINE,
-		MAT_AMMONIA,
-		MAT_CO,
-		MAT_METHYL_BROMIDE,
-		MAT_METHANE
+		GAS_PHORON,
+		GAS_N2O,
+		GAS_CHLORINE,
+		GAS_AMMONIA,
+		GAS_CO,
+		GAS_METHYL_BROMIDE,
+		GAS_METHANE
 	)
 	var/clogged
 	var/filter_water
@@ -196,7 +196,8 @@
 	item_state = "respirator"
 	flags_inv = 0
 	body_parts_covered = 0
-	filtered_gases = list(MAT_OXYGEN)
+	species_restricted = list(SPECIES_VOX,SPECIES_VOX_ARMALIS)
+	filtered_gases = list(GAS_OXYGEN)
 
 
 /obj/item/clothing/mask/gas/swat/vox
@@ -205,15 +206,16 @@
 	icon_state = "voxswat"
 	item_state = "voxswat"
 	body_parts_covered = EYES
+	species_restricted = list(SPECIES_VOX,SPECIES_VOX_ARMALIS)
 	filtered_gases = list(
-		MAT_OXYGEN,
-		MAT_PHORON,
-		MAT_N2O,
-		MAT_CHLORINE,
-		MAT_AMMONIA,
-		MAT_CO,
-		MAT_METHYL_BROMIDE,
-		MAT_METHANE
+		GAS_OXYGEN,
+		GAS_PHORON,
+		GAS_N2O,
+		GAS_CHLORINE,
+		GAS_AMMONIA,
+		GAS_CO,
+		GAS_METHYL_BROMIDE,
+		GAS_METHANE
 		)
 
 /obj/item/clothing/mask/gas/aquabreather
@@ -222,4 +224,4 @@
 	icon_state = "halfgas"
 	filter_water = TRUE
 	body_parts_covered = FACE
-	w_class = ITEM_SIZE_SMALL
+	w_class = 2

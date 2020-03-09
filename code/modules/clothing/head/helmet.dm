@@ -24,6 +24,7 @@
 	max_heat_protection_temperature = HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.7
 	w_class = ITEM_SIZE_NORMAL
+	species_restricted = list("exclude",SPECIES_NABBER,SPECIES_ADHERENT)
 	var/allow_hair_covering = 1
 
 // Snowflakes gotta snowflake.
@@ -88,7 +89,7 @@
 	siemens_coefficient = 0.7
 	action_button_name = "Toggle Visor"
 
-/obj/item/clothing/head/helmet/riot/attack_self(mob/user)
+/obj/item/clothing/head/helmet/riot/attack_self(mob/user as mob)
 	if(src.icon_state == initial(icon_state))
 		src.icon_state = "[icon_state]_up"
 		to_chat(user, "You raise the visor on the [src].")
@@ -181,4 +182,55 @@
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.5
 
+//Non-hardsuit ERT helmets.
+//Commander
+/obj/item/clothing/head/helmet/ert
+	name = "asset protection command helmet"
+	desc = "An in-atmosphere helmet worn by many corporate and private asset protection forces. Has blue highlights."
+	icon_state = "erthelmet_cmd"
+	valid_accessory_slots = null
+	item_state_slots = list(
+		slot_l_hand_str = "syndicate-helm-green",
+		slot_r_hand_str = "syndicate-helm-green",
+		)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_RIFLE,
+		laser = ARMOR_LASER_HANDGUNS,
+		energy = ARMOR_ENERGY_RESISTANT,
+		bomb = ARMOR_BIO_MINOR
+		)
 
+//Security
+/obj/item/clothing/head/helmet/ert/security
+	name = "asset protection security helmet"
+	desc = "An in-atmosphere helmet worn by many corporate and private asset protection forces. Has red highlights."
+	icon_state = "erthelmet_sec"
+
+//Engineer
+/obj/item/clothing/head/helmet/ert/engineer
+	name = "asset protection engineering helmet"
+	desc = "An in-atmosphere helmet worn by many corporate and private asset protection forces. Has orange highlights."
+	icon_state = "erthelmet_eng"
+
+//Medical
+/obj/item/clothing/head/helmet/ert/medical
+	name = "asset protection medical helmet"
+	desc = "An in-atmosphere helmet worn by many corporate and private asset protection forces. Has red and white highlights."
+	icon_state = "erthelmet_med"
+
+/obj/item/clothing/head/helmet/tactical/mirania
+	name = "bundeforz tactical helmet"
+	desc = "A light grey helmet made from advanced ceramic. Comfortable and robust."
+	icon_state = "m_helmet"
+
+/obj/item/clothing/head/helmet/nt/pilot
+	name = "corporate pilot's helmet"
+	desc = "A corporate pilot's helmet for operating the cockpit in style for a hefty paycheck."
+	icon_state = "pilotnt"
+
+/obj/item/clothing/head/helmet/skrell
+	name = "skrellian helmet"
+	desc = "A helmet built for use by a Skrell. This one appears to be fairly standard and reliable."
+	icon_state = "helmet_skrell"
+	valid_accessory_slots = null

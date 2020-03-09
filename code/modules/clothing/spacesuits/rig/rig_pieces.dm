@@ -10,6 +10,11 @@
 	heat_protection =    HEAD|FACE|EYES
 	cold_protection =    HEAD|FACE|EYES
 	brightness_on = 0.5
+	sprite_sheets = list(
+		SPECIES_SKRELL = 'icons/mob/species/skrell/onmob_head_skrell.dmi',
+		SPECIES_UNATHI = 'icons/mob/species/unathi/onmob_head_helmet_unathi.dmi',
+		SPECIES_OLDUNATHI = 'icons/mob/species/unathi/onmob_head_helmet_unathi.dmi'
+		)
 	species_restricted = null
 
 /obj/item/clothing/gloves/rig
@@ -33,7 +38,7 @@
 
 /obj/item/clothing/suit/space/rig
 	name = "chestpiece"
-	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit)
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	heat_protection =    UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	cold_protection =    UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
@@ -44,6 +49,9 @@
 	breach_threshold = 38
 	resilience = 0.2
 	can_breach = 1
+	sprite_sheets = list(
+		SPECIES_UNATHI = 'icons/mob/species/unathi/onmob_suit_unathi.dmi'
+		)
 	var/list/supporting_limbs = list() //If not-null, automatically splints breaks. Checked when removing the suit.
 
 /obj/item/clothing/suit/space/rig/equipped(mob/M)
@@ -58,7 +66,7 @@
 /obj/item/clothing/suit/space/rig/proc/can_support(var/mob/living/carbon/human/user)
 	if(user.wear_suit != src)
 		return 0 //not wearing the suit
-	var/obj/item/rig/rig = user.back
+	var/obj/item/weapon/rig/rig = user.back
 	if(!istype(rig) || rig.offline || rig.canremove)
 		return 0 //not wearing a rig control unit or it's offline or unsealed
 	return 1
@@ -98,7 +106,7 @@
 	if(!istype(H) || !H.back)
 		return 0
 
-	var/obj/item/rig/suit = H.back
+	var/obj/item/weapon/rig/suit = H.back
 	if(!suit || !istype(suit) || !suit.installed_modules.len)
 		return 0
 
@@ -119,7 +127,7 @@
 
 /obj/item/clothing/suit/lightrig
 	name = "suit"
-	allowed = list(/obj/item/flashlight)
+	allowed = list(/obj/item/device/flashlight)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	heat_protection =    UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	cold_protection =    UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
