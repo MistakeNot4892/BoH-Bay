@@ -8,7 +8,8 @@ GLOBAL_LIST_EMPTY(job_whitelist)
 	return 1
 
 /proc/load_job_whitelist()
-	GLOB.job_whitelist = file2list(JOBWHITELISTFILE)
+	if(fexists(JOBWHITELISTFILE))
+		GLOB.job_whitelist = file2list(JOBWHITELISTFILE)
 
 /proc/is_job_whitelisted(var/client/M, var/job)
 	if(!M || !job)

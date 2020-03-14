@@ -1,5 +1,9 @@
 /datum/unit_test/station_wires_shall_be_connected
-	exceptions = list(list(80, 107, 1, WEST))
+	exceptions = list(
+		list(80, 107, 1, WEST),
+		list(86, 97,  4, NORTH),
+		list(86, 99,  4, SOUTH)
+	)
 
 /datum/map/torch
 	// Unit test exemptions
@@ -33,12 +37,12 @@
 		/area/shuttle/merchant = NO_SCRUBBER|NO_APC,
 		/area/shuttle/petrov = 0,
 		/area/shuttle/petrov/maint = NO_SCRUBBER,
+		/area/shuttle/escape_pod1/station = NO_SCRUBBER|NO_APC,
+		/area/shuttle/escape_pod2/station = NO_SCRUBBER|NO_APC,
+		/area/shuttle/escape_pod3/station = NO_SCRUBBER|NO_APC,
+		/area/shuttle/escape_pod4/station = NO_SCRUBBER|NO_APC,
+		/area/shuttle/escape_pod5/station = NO_SCRUBBER|NO_APC,
 		/area/shuttle/escape_pod6/station = NO_SCRUBBER|NO_APC,
-		/area/shuttle/escape_pod7/station = NO_SCRUBBER|NO_APC,
-		/area/shuttle/escape_pod8/station = NO_SCRUBBER|NO_APC,
-		/area/shuttle/escape_pod9/station = NO_SCRUBBER|NO_APC,
-		/area/shuttle/escape_pod10/station = NO_SCRUBBER|NO_APC,
-		/area/shuttle/escape_pod11/station = NO_SCRUBBER|NO_APC,
 		/area/solar = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/storage = NO_SCRUBBER|NO_VENT,
 		/area/storage/auxillary/port = 0,

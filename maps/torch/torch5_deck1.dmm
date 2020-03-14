@@ -1404,7 +1404,7 @@
 /area/maintenance/firstdeck/forestarboard)
 "act" = (
 /turf/simulated/wall/r_titanium,
-/area/shuttle/escape_pod12/station)
+/area/shuttle/escape_pod7/station)
 "acu" = (
 /obj/machinery/button/blast_door{
 	id_tag = "d1starboardnacelle";
@@ -1429,7 +1429,7 @@
 /area/thruster/d1starboard)
 "acw" = (
 /turf/simulated/wall/r_titanium,
-/area/shuttle/escape_pod13/station)
+/area/shuttle/escape_pod8/station)
 "acx" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1447;
@@ -1447,7 +1447,7 @@
 /area/assembly/chargebay)
 "acz" = (
 /turf/simulated/wall/r_titanium,
-/area/shuttle/escape_pod14/station)
+/area/shuttle/escape_pod9/station)
 "acA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2774,45 +2774,45 @@
 "aeS" = (
 /obj/structure/shuttle/engine/propulsion,
 /turf/simulated/wall/r_titanium,
-/area/shuttle/escape_pod12/station)
+/area/shuttle/escape_pod7/station)
 "aeT" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "closed";
-	id_tag = "escape_pod_12_hatch";
+	id_tag = "escape_pod7_hatch";
 	locked = 1;
 	name = "Escape Pod Seven Hatch"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/escape_pod12/station)
+/area/shuttle/escape_pod7/station)
 "aeU" = (
 /obj/structure/shuttle/engine/propulsion,
 /turf/simulated/wall/r_titanium,
-/area/shuttle/escape_pod13/station)
+/area/shuttle/escape_pod8/station)
 "aeV" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "closed";
-	id_tag = "escape_pod_13_hatch";
+	id_tag = "escape_pod8_hatch";
 	locked = 1;
 	name = "Escape Pod Eight Hatch"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/escape_pod13/station)
+/area/shuttle/escape_pod8/station)
 "aeW" = (
 /obj/structure/shuttle/engine/propulsion,
 /turf/simulated/wall/r_titanium,
-/area/shuttle/escape_pod14/station)
+/area/shuttle/escape_pod9/station)
 "aeX" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "closed";
-	id_tag = "escape_pod_14_hatch";
+	id_tag = "escape_pod9_hatch";
 	locked = 1;
 	name = "Escape Pod Nine Hatch"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/escape_pod14/station)
+/area/shuttle/escape_pod9/station)
 "aeY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3314,7 +3314,7 @@
 "afV" = (
 /obj/machinery/door/airlock/external/escapepod{
 	icon_state = "closed";
-	id_tag = "escape_pod_12_berth_hatch";
+	id_tag = "escape_pod7_berth_hatch";
 	name = "Escape Pod Seven"
 	},
 /obj/machinery/shield_diffuser,
@@ -3323,7 +3323,7 @@
 "afW" = (
 /obj/machinery/door/airlock/external/escapepod{
 	icon_state = "closed";
-	id_tag = "escape_pod_13_berth_hatch";
+	id_tag = "escape_pod8_berth_hatch";
 	name = "Escape Pod Eight"
 	},
 /obj/machinery/shield_diffuser,
@@ -3332,7 +3332,7 @@
 "afX" = (
 /obj/machinery/door/airlock/external/escapepod{
 	icon_state = "closed";
-	id_tag = "escape_pod_14_berth_hatch";
+	id_tag = "escape_pod9_berth_hatch";
 	name = "Escape Pod Nine"
 	},
 /obj/machinery/shield_diffuser,
@@ -3956,11 +3956,11 @@
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth{
 	frequency = 1380;
-	id_tag = "escape_pod_12_berth";
+	id_tag = "escape_pod_7_berth";
 	name = "escape pod seven berth controller";
 	pixel_x = -24;
 	pixel_y = 24;
-	tag_door = "escape_pod_12_berth_hatch"
+	tag_door = "escape_pod7_berth_hatch"
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/maintenance/firstdeck/centralstarboard)
@@ -3992,11 +3992,11 @@
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth{
 	frequency = 1380;
-	id_tag = "escape_pod_13_berth";
+	id_tag = "escape_pod_8_berth";
 	name = "escape pod eight berth controller";
 	pixel_x = -24;
 	pixel_y = 24;
-	tag_door = "escape_pod_13_berth_hatch"
+	tag_door = "escape_pod8_berth_hatch"
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/maintenance/firstdeck/centralstarboard)
@@ -4015,11 +4015,11 @@
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth{
 	frequency = 1380;
-	id_tag = "escape_pod_14_berth";
+	id_tag = "escape_pod_9_berth";
 	name = "escape pod nine berth controller";
 	pixel_x = -24;
 	pixel_y = 24;
-	tag_door = "escape_pod_14_berth_hatch"
+	tag_door = "escape_pod9_berth_hatch"
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/maintenance/firstdeck/centralstarboard)
@@ -5837,7 +5837,7 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/escape_pod12/station)
+/area/shuttle/escape_pod7/station)
 "akc" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -6766,7 +6766,6 @@
 	icon_state = "1-4"
 	},
 /obj/structure/catwalk,
-/obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -6828,7 +6827,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/structure/catwalk,
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/firstdeck/foreport)
@@ -7545,7 +7543,7 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/escape_pod13/station)
+/area/shuttle/escape_pod8/station)
 "anc" = (
 /obj/machinery/biogenerator,
 /obj/machinery/light,
@@ -10438,7 +10436,6 @@
 /turf/simulated/floor/tiled,
 /area/security/wing)
 "arY" = (
-/obj/structure/catwalk,
 /obj/structure/catwalk,
 /obj/item/weapon/stool/padded,
 /turf/simulated/floor/plating,
@@ -14281,7 +14278,7 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/escape_pod14/station)
+/area/shuttle/escape_pod9/station)
 "aMB" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/medical,
@@ -14643,11 +14640,11 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth{
 	dir = 1;
 	frequency = 1380;
-	id_tag = "escape_pod_15_berth";
+	id_tag = "escape_pod_10_berth";
 	name = "escape pod ten berth controller";
 	pixel_x = 24;
 	pixel_y = -24;
-	tag_door = "escape_pod_15_berth_hatch"
+	tag_door = "escape_pod10_berth_hatch"
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
@@ -14723,11 +14720,11 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth{
 	dir = 1;
 	frequency = 1380;
-	id_tag = "escape_pod_17_berth";
-	name = "escape pod twelve berth controller";
+	id_tag = "escape_pod_11_berth";
+	name = "escape pod eleven berth controller";
 	pixel_x = 24;
 	pixel_y = -24;
-	tag_door = "escape_pod_17_berth_hatch"
+	tag_door = "escape_pod11_berth_hatch"
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
@@ -14895,7 +14892,7 @@
 "aQI" = (
 /obj/machinery/door/airlock/external/escapepod{
 	icon_state = "closed";
-	id_tag = "escape_pod_15_berth_hatch";
+	id_tag = "escape_pod10_berth_hatch";
 	name = "Escape Pod Ten"
 	},
 /obj/machinery/shield_diffuser,
@@ -14904,8 +14901,8 @@
 "aQK" = (
 /obj/machinery/door/airlock/external/escapepod{
 	icon_state = "closed";
-	id_tag = "escape_pod_17_berth_hatch";
-	name = "Escape Pod Twelve"
+	id_tag = "escape_pod11_berth_hatch";
+	name = "Escape Pod Eleven"
 	},
 /obj/machinery/shield_diffuser,
 /turf/simulated/floor/plating,
@@ -15023,33 +15020,33 @@
 	dir = 1
 	},
 /turf/simulated/wall/r_titanium,
-/area/shuttle/escape_pod15/station)
+/area/shuttle/escape_pod10/station)
 "aRC" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "closed";
-	id_tag = "escape_pod_15_hatch";
+	id_tag = "escape_pod10_hatch";
 	locked = 1;
 	name = "Escape Pod Ten Hatch"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/escape_pod15/station)
+/area/shuttle/escape_pod10/station)
 "aRF" = (
 /obj/structure/shuttle/engine/propulsion{
 	dir = 1
 	},
 /turf/simulated/wall/r_titanium,
-/area/shuttle/escape_pod17/station)
+/area/shuttle/escape_pod11/station)
 "aRG" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "closed";
-	id_tag = "escape_pod_17_hatch";
+	id_tag = "escape_pod11_hatch";
 	locked = 1;
-	name = "Escape Pod Twelve Hatch"
+	name = "Escape Pod Eleven Hatch"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/escape_pod17/station)
+/area/shuttle/escape_pod11/station)
 "aRH" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -15232,10 +15229,10 @@
 /area/thruster/d1port)
 "aSx" = (
 /turf/simulated/wall/r_titanium,
-/area/shuttle/escape_pod15/station)
+/area/shuttle/escape_pod10/station)
 "aSB" = (
 /turf/simulated/wall/r_titanium,
-/area/shuttle/escape_pod17/station)
+/area/shuttle/escape_pod11/station)
 "aSD" = (
 /obj/machinery/power/apc{
 	name = "south bump";
@@ -17080,7 +17077,7 @@
 "bHb" = (
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/escape_pod12/station)
+/area/shuttle/escape_pod7/station)
 "bHp" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -17121,11 +17118,11 @@
 "bIb" = (
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/escape_pod13/station)
+/area/shuttle/escape_pod8/station)
 "bJb" = (
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/escape_pod14/station)
+/area/shuttle/escape_pod9/station)
 "bLb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -17168,8 +17165,9 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/effect/shuttle_landmark/escape_pod/start/pod7,
 /turf/simulated/floor/plating,
-/area/shuttle/escape_pod12/station)
+/area/shuttle/escape_pod7/station)
 "bNt" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -17200,8 +17198,9 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/effect/shuttle_landmark/escape_pod/start/pod8,
 /turf/simulated/floor/plating,
-/area/shuttle/escape_pod13/station)
+/area/shuttle/escape_pod8/station)
 "bOr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -17235,8 +17234,9 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/effect/shuttle_landmark/escape_pod/start/pod9,
 /turf/simulated/floor/plating,
-/area/shuttle/escape_pod14/station)
+/area/shuttle/escape_pod9/station)
 "bQb" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
@@ -17245,17 +17245,17 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod{
 	dir = 4;
 	frequency = 1380;
-	id_tag = "escape_pod_12";
+	id_tag = "escape_pod7";
 	name = "escape pod seven controller";
 	pixel_x = -24;
-	tag_door = "escape_pod_12_hatch"
+	tag_door = "escape_pod7_hatch"
 	},
 /obj/structure/bed/chair/shuttle{
 	dir = 1;
 	tag = "icon-shuttle_chair_preview (NORTH)"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/escape_pod12/station)
+/area/shuttle/escape_pod7/station)
 "bRb" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
@@ -17264,17 +17264,17 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod{
 	dir = 4;
 	frequency = 1380;
-	id_tag = "escape_pod_13";
+	id_tag = "escape_pod8";
 	name = "escape pod eight controller";
 	pixel_x = -24;
-	tag_door = "escape_pod_13_hatch"
+	tag_door = "escape_pod8_hatch"
 	},
 /obj/structure/bed/chair/shuttle{
 	dir = 1;
 	tag = "icon-shuttle_chair_preview (NORTH)"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/escape_pod13/station)
+/area/shuttle/escape_pod8/station)
 "bSb" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
@@ -17283,17 +17283,17 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod{
 	dir = 4;
 	frequency = 1380;
-	id_tag = "escape_pod_14";
+	id_tag = "escape_pod9";
 	name = "escape pod nine controller";
 	pixel_x = -24;
-	tag_door = "escape_pod_14_hatch"
+	tag_door = "escape_pod9_hatch"
 	},
 /obj/structure/bed/chair/shuttle{
 	dir = 1;
 	tag = "icon-shuttle_chair_preview (NORTH)"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/escape_pod14/station)
+/area/shuttle/escape_pod9/station)
 "bTb" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
@@ -17305,14 +17305,14 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod{
 	dir = 8;
 	frequency = 1380;
-	id_tag = "escape_pod_15";
+	id_tag = "escape_pod10";
 	name = "escape pod ten controller";
 	pixel_x = 24;
-	tag_door = "escape_pod_15_hatch"
+	tag_door = "escape_pod10_hatch"
 	},
 /obj/structure/bed/chair/shuttle,
 /turf/simulated/floor/plating,
-/area/shuttle/escape_pod15/station)
+/area/shuttle/escape_pod10/station)
 "bUe" = (
 /turf/simulated/wall/prepainted,
 /area/medical/washroom)
@@ -17349,14 +17349,14 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod{
 	dir = 8;
 	frequency = 1380;
-	id_tag = "escape_pod_17";
-	name = "escape pod twelve controller";
+	id_tag = "escape_pod11";
+	name = "escape pod eleven controller";
 	pixel_x = 24;
-	tag_door = "escape_pod_17_hatch"
+	tag_door = "escape_pod11_hatch"
 	},
 /obj/structure/bed/chair/shuttle,
 /turf/simulated/floor/plating,
-/area/shuttle/escape_pod17/station)
+/area/shuttle/escape_pod11/station)
 "bWb" = (
 /obj/machinery/status_display{
 	pixel_x = -32
@@ -17365,8 +17365,9 @@
 	pixel_x = 32
 	},
 /obj/structure/bed/chair/shuttle,
+/obj/effect/shuttle_landmark/escape_pod/start/pod10,
 /turf/simulated/floor/plating,
-/area/shuttle/escape_pod15/station)
+/area/shuttle/escape_pod10/station)
 "bWw" = (
 /obj/machinery/power/apc{
 	dir = 4;
@@ -17400,8 +17401,9 @@
 	pixel_x = 32
 	},
 /obj/structure/bed/chair/shuttle,
+/obj/effect/shuttle_landmark/escape_pod/start/pod11,
 /turf/simulated/floor/plating,
-/area/shuttle/escape_pod17/station)
+/area/shuttle/escape_pod11/station)
 "bYj" = (
 /obj/machinery/button/blast_door{
 	id_tag = "armory_entrylock";
@@ -17429,21 +17431,21 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/escape_pod15/station)
+/area/shuttle/escape_pod10/station)
 "cbb" = (
 /obj/machinery/cryopod{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/escape_pod17/station)
+/area/shuttle/escape_pod11/station)
 "ccb" = (
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /turf/simulated/floor/plating,
-/area/shuttle/escape_pod15/station)
+/area/shuttle/escape_pod10/station)
 "ceb" = (
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /turf/simulated/floor/plating,
-/area/shuttle/escape_pod17/station)
+/area/shuttle/escape_pod11/station)
 "cfn" = (
 /obj/structure/cable/green{
 	d1 = 4;
